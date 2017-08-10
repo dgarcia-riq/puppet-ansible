@@ -1,0 +1,18 @@
+{
+  "name": "otherskins-ansible",
+  "version": "0.1.0",
+  "author": "otherskins",
+  "summary": "This module install and configure Ansible.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/otherskins/puppet-ansible.git",
+  "project_page": "https://github.com/otherskins/puppet-ansible",
+  "issues_url": "https://github.com/otherskins/puppet-ansible/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "data_provider": null
+}
+

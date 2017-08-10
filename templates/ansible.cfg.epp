@@ -98,191 +98,392 @@ task_includes_static = <%= $ansible::task_includes_static %>
 handler_includes_static = <%= $ansible::handler_includes_static %>
 <%- end -%>
 
+<%- if $ansible::error_on_missing_handler -%>
+error_on_missing_handler = <%= $ansible::error_on_missing_handler %>
+<%- end -%>
 
-error_on_missing_handler = True
+<%- if $ansible::sudo_exe -%>
+sudo_exe = <%= $ansible::sudo_exe %>
+<%- end -%>
 
-sudo_exe = sudo
+<%- if $ansible::sudo_flags -%>
+sudo_flags = <%= $ansible::sudo_flags %>
+<%- end -%>
 
-sudo_flags = -H -S -n
+<%- if $ansible::timeout -%>
+timeout = <%= $ansible::timeout %>
+<%- end -%>
 
-timeout = 10
+<%- if $ansible::remote_user -%>
+remote_user = <%= $ansible::remote_user %>
+<%- end -%>
 
-remote_user = root
+<%- if $ansible::log_path -%>
+log_path = <%= $ansible::log_path %>
+<%- end -%>
 
-log_path = /var/log/ansible.log
+<%- if $ansible::module_name -%>
+module_name = <%= $ansible::module_name %>
+<%- end -%>
 
-module_name = command
+<%- if $ansible::executable -%>
+executable = <%= $ansible::executable %>
+<%- end -%>
 
-executable = /bin/sh
+<%- if $ansible::hash_behaviour -%>
+hash_behaviour = <%= $ansible::hash_behaviour %>
+<%- end -%>
 
-hash_behaviour = replace
+<%- if $ansible::private_role_vars -%>
+private_role_vars = <%= $ansible::private_role_vars %>
+<%- end -%>
 
-private_role_vars = yes
+<%- if $ansible::jinja2_extensions -%>
+jinja2_extensions = <%= $ansible::jinja2_extensions %>
+<%- end -%>
+
+<%- if $ansible::private_key_file -%>
+private_key_file = <%= $ansible::private_key_file %>
+<%- end -%>
+
+<%- if $ansible::vault_password_file -%>
+vault_password_file = <%= $ansible::vault_password_file %>
+<%- end -%>
+
+<%- if $ansible::ansible_managed -%>
+ansible_managed = <%= $ansible::ansible_managed %>
+<%- end -%>
+
+<%- if $ansible::display_skipped_hosts -%>
+display_skipped_hosts = <%= $ansible::display_skipped_hosts %>
+<%- end -%>
+
+<%- if $ansible::display_args_to_stdout -%>
+display_args_to_stdout = <%= $ansible::display_args_to_stdout %>
+<%- end -%>
+
+<%- if $ansible::error_on_undefined_vars -%>
+error_on_undefined_vars = <%= $ansible::error_on_undefined_vars %>
+<%- end -%>
+
+<%- if $ansible::system_warnings -%>
+system_warnings = <%= $ansible::system_warnings %>
+<%- end -%>
+
+<%- if $ansible::deprecation_warnings -%>
+deprecation_warnings = <%= $ansible::deprecation_warnings %>
+<%- end -%>
+
+<%- if $ansible::command_warnings -%>
+command_warnings = <%= $ansible::command_warnings %>
+<%- end -%>
+
+<%- if $ansible::action_plugins -%>
+action_plugins = <%= $ansible::action_plugins %>
+<%- end -%>
+
+<%- if $ansible::cache_plugins -%>
+cache_plugins = <%= $ansible::cache_plugins %>
+<%- end -%>
+
+<%- if $ansible::callback_plugins -%>
+callback_plugins = <%= $ansible::callback_plugins %>
+<%- end -%>
+
+<%- if $ansible::connection_plugins -%>
+connection_plugins = <%= $ansible::connection_plugins %>
+<%- end -%>
+
+<%- if $ansible::lookup_plugins -%>
+lookup_plugins = <%= $ansible::lookup_plugins %>
+<%- end -%>
+
+<%- if $ansible::inventory_plugins -%>
+inventory_plugins = <%= $ansible::inventory_plugins %>
+<%- end -%>
+
+<%- if $ansible::vars_plugins -%>
+vars_plugins = <%= $ansible::vars_plugins %>
+<%- end -%>
+
+<%- if $ansible::filter_plugins -%>
+filter_plugins = <%= $ansible::filter_plugins %>
+<%- end -%>
+
+<%- if $ansible::test_plugins -%>
+test_plugins = <%= $ansible::test_plugins %>
+<%- end -%>
+
+<%- if $ansible::terminal_plugins -%>
+terminal_plugins = <%= $ansible::terminal_plugins %>
+<%- end -%>
+
+<%- if $ansible::strategy_plugins -%>
+strategy_plugins = <%= $ansible::strategy_plugins %>
+<%- end -%>
+
+<%- if $ansible::strategy -%>
+strategy = <%= $ansible::strategy %>
+<%- end -%>
+
+<%- if $ansible::bin_ansible_callbacks -%>
+bin_ansible_callbacks = <%= $ansible::bin_ansible_callbacks %>
+<%- end -%>
+
+<%- if $ansible::nocows -%>
+nocows = <%= $ansible::nocows %>
+<%- end -%>
 
 
-jinja2_extensions = jinja2.ext.do,jinja2.ext.i18n
+<%- if $ansible::cow_selection -%>
+cow_selection = <%= $ansible::cow_selection %>
+<%- end -%>
 
-private_key_file = /path/to/file
+<%- if $ansible::cow_whitelist -%>
+cow_whitelist = <%= $ansible::cow_whitelist %>
+<%- end -%>
 
-vault_password_file = /path/to/vault_password_file
+<%- if $ansible::nocolor -%>
+nocolor = <%= $ansible::nocolor %>
+<%- end -%>
 
-ansible_managed = Ansible managed
+<%- if $ansible::fact_caching -%>
+fact_caching = <%= $ansible::fact_caching %>
+<%- end -%>
 
-display_skipped_hosts = True
+<%- if $ansible::retry_files_enabled -%>
+retry_files_enabled = <%= $ansible::retry_files_enabled %>
+<%- end -%>
 
-display_args_to_stdout = False
+<%- if $ansible::retry_files_save_path -%>
+retry_files_save_path = <%= $ansible::retry_files_save_path %>
+<%- end -%>
 
-error_on_undefined_vars = False
+<%- if $ansible::squash_actions -%>
+squash_actions = <%= $ansible::squash_actions %>
+<%- end -%>
 
-system_warnings = True
+<%- if $ansible::no_log -%>
+no_log = <%= $ansible::no_log %>
+<%- end -%>
 
-deprecation_warnings = True
+<%- if $ansible::no_target_syslog -%>
+no_target_syslog = <%= $ansible::no_target_syslog %>
+<%- end -%>
 
-command_warnings = False
+<%- if $ansible::allow_world_readable_tmpfiles -%>
+allow_world_readable_tmpfiles = <%= $ansible::allow_world_readable_tmpfiles %>
+<%- end -%>
 
-action_plugins = /usr/share/ansible/plugins/action
-cache_plugins = /usr/share/ansible/plugins/cache
-callback_plugins = /usr/share/ansible/plugins/callback
-connection_plugins = /usr/share/ansible/plugins/connection
-lookup_plugins = /usr/share/ansible/plugins/lookup
-inventory_plugins = /usr/share/ansible/plugins/inventory
-vars_plugins = /usr/share/ansible/plugins/vars
-filter_plugins = /usr/share/ansible/plugins/filter
-test_plugins = /usr/share/ansible/plugins/test
-terminal_plugins = /usr/share/ansible/plugins/terminal
-strategy_plugins = /usr/share/ansible/plugins/strategy
+<%- if $ansible::var_compression_level -%>
+var_compression_level = <%= $ansible::var_compression_level %>
+<%- end -%>
 
-strategy = free
+<%- if $ansible::module_compression -%>
+module_compression = <%= $ansible::module_compression %>
+<%- end -%>
 
-bin_ansible_callbacks = False
+<%- if $ansible::max_diff_size -%>
+max_diff_size = <%= $ansible::max_diff_size %>
+<%- end -%>
 
-nocows = 1
+<%- if $ansible::merge_multiple_cli_flags -%>
+merge_multiple_cli_flags = <%= $ansible::merge_multiple_cli_flags %>
+<%- end -%>
 
-cow_selection = default
-cow_selection = random
+<%- if $ansible::show_custom_stats -%>
+show_custom_stats = <%= $ansible::show_custom_stats %>
+<%- end -%>
 
-cow_whitelist = bud-frogs,bunny,cheese,daemon,default,dragon,elephant-in-snake,elephant,eyes,\
-              hellokitty,kitty,luke-koala,meow,milk,moofasa,moose,ren,sheep,small,stegosaurus,\
-              stimpy,supermilker,three-eyes,turkey,turtle,tux,udder,vader-koala,vader,www
+<%- if $ansible::inventory_ignore_extensions -%>
+inventory_ignore_extensions = <%= $ansible::inventory_ignore_extensions %>
+<%- end -%>
 
-nocolor = 1
+<%- if $ansible::network_group_modules -%>
+network_group_modules = <%= $ansible::network_group_modules %>
+<%- end -%>
 
-fact_caching = memory
+<%- if $ansible::restrict_facts_namespace -%>
+restrict_facts_namespace = <%= $ansible::restrict_facts_namespace %>
+<%- end -%>
 
+<%- if $ansible::allow_unsafe_lookups -%>
+allow_unsafe_lookups = <%= $ansible::allow_unsafe_lookups %>
+<%- end -%>
 
-retry_files_enabled = False
-retry_files_save_path = ~/.ansible-retry
-
-squash_actions = apk,apt,dnf,homebrew,pacman,pkgng,yum,zypper
-
-no_log = False
-
-no_target_syslog = False
-
-allow_world_readable_tmpfiles = False
-
-var_compression_level = 9
-
-module_compression = 'ZIP_DEFLATED'
-
-max_diff_size = 1048576
-
-
-merge_multiple_cli_flags = True
-
-
-show_custom_stats = True
-
-
-inventory_ignore_extensions = ~, .orig, .bak, .ini, .cfg, .retry, .pyc, .pyo
-
-
-network_group_modules = ['eos', 'nxos', 'ios', 'iosxr', 'junos', 'vyos']
-
-
-restrict_facts_namespace =  True
-
-
-allow_unsafe_lookups = False
-
-
-any_errors_fatal = False
+<%- if $ansible::any_errors_fatal -%>
+any_errors_fatal = <%= $ansible::any_errors_fatal %>
+<%- end -%>
 
 [privilege_escalation]
-become = True
-become_method = sudo
-become_user = root
-become_ask_pass = False
+
+<%- if $ansible::become -%>
+become = <%= $ansible::become %>
+<%- end -%>
+
+<%- if $ansible::become_method -%>
+become_method = <%= $ansible::become_method %>
+<%- end -%>
+
+<%- if $ansible::become_user -%>
+become_user = <%= $ansible::become_user %>
+<%- end -%>
+
+<%- if $ansible::become_ask_pass -%>
+become_ask_pass = <%= $ansible::become_ask_pass %>
+<%- end -%>
 
 [paramiko_connection]
 
-record_host_keys = False
+<%- if $ansible::record_host_keys -%>
+record_host_keys = <%= $ansible::record_host_keys %>
+<%- end -%>
 
-pty = False
+<%- if $ansible::pty -%>
+pty = <%= $ansible::pty %>
+<%- end -%>
 
+<%- if $ansible::look_for_keys -%>
+look_for_keys = <%= $ansible::look_for_keys %>
+<%- end -%>
 
-look_for_keys = False
-
-host_key_auto_add = True
+<%- if $ansible::host_key_auto_add -%>
+host_key_auto_add = <%= $ansible::host_key_auto_add %>
+<%- end -%>
 
 [ssh_connection]
 
+<%- if $ansible::ssh_args -%>
+ssh_args = <%= $ansible::ssh_args %>
+<%- end -%>
 
-ssh_args = -C -o ControlMaster=auto -o ControlPersist=60s
+<%- if $ansible::control_path_dir -%>
+control_path_dir = <%= $ansible::control_path_dir %>
+<%- end -%>
 
-control_path_dir = ~/.ansible/cp
+<%- if $ansible::control_path -%>
+control_path = <%= $ansible::control_path %>
+<%- end -%>
 
-control_path =
+<%- if $ansible::pipelining -%>
+pipelining = <%= $ansible::pipelining %>
+<%- end -%>
 
-pipelining = False
+<%- if $ansible::scp_if_ssh -%>
+scp_if_ssh = <%= $ansible::scp_if_ssh %>
+<%- end -%>
 
+<%- if $ansible::transfer_method -%>
+transfer_method = <%= $ansible::transfer_method %>
+<%- end -%>
 
-scp_if_ssh = smart
-
-transfer_method = smart
-
-sftp_batch_mode = False
+<%- if $ansible::sftp_batch_mode -%>
+sftp_batch_mode = <%= $ansible::sftp_batch_mode %>
+<%- end -%>
 
 [persistent_connection]
 
-connect_timeout = 30
+<%- if $ansible::connect_timeout -%>
+connect_timeout = <%= $ansible::connect_timeout %>
+<%- end -%>
 
-connect_retry_timeout = 15
+<%- if $ansible::connect_retry_timeout -%>
+connect_retry_timeout = <%= $ansible::connect_retry_timeout %>
+<%- end -%>
 
-command_timeout = 10
+<%- if $ansible::command_timeout -%>
+command_timeout = <%= $ansible::command_timeout %>
+<%- end -%>
 
 [accelerate]
-accelerate_port = 5099
-accelerate_timeout = 30
-accelerate_connect_timeout = 5.0
 
-accelerate_daemon_timeout = 30
+<%- if $ansible::accelerate_port -%>
+accelerate_port = <%= $ansible::accelerate_port %>
+<%- end -%>
 
-accelerate_multi_key = yes
+<%- if $ansible::accelerate_timeout -%>
+accelerate_timeout = <%= $ansible::accelerate_timeout %>
+<%- end -%>
+
+<%- if $ansible::accelerate_connect_timeout -%>
+accelerate_connect_timeout = <%= $ansible::accelerate_connect_timeout %>
+<%- end -%>
+
+<%- if $ansible::accelerate_multi_key -%>
+accelerate_multi_key = <%= $ansible::accelerate_multi_key %>
+<%- end -%>
 
 [selinux]
-special_context_filesystems=nfs,vboxsf,fuse,ramfs,9p
 
-libvirt_lxc_noseclabel = yes
+<%- if $ansible::special_context_filesystems -%>
+special_context_filesystems = <%= $ansible::special_context_filesystems %>
+<%- end -%>
+
+<%- if $ansible::libvirt_lxc_noseclabel -%>
+libvirt_lxc_noseclabel = <%= $ansible::libvirt_lxc_noseclabel %>
+<%- end -%>
 
 [colors]
-highlight = white
-verbose = blue
-warn = bright purple
-error = red
-debug = dark gray
-deprecate = purple
-skip = cyan
-unreachable = red
-ok = green
-changed = yellow
-diff_add = green
-diff_remove = red
-diff_lines = cyan
+
+<%- if $ansible::highlight -%>
+highlight = <%= $ansible::highlight %>
+<%- end -%>
+
+<%- if $ansible::verbose -%>
+verbose = <%= $ansible::verbose %>
+<%- end -%>
+
+<%- if $ansible::warn -%>
+warn = <%= $ansible::warn %>
+<%- end -%>
+
+<%- if $ansible::error -%>
+error = <%= $ansible::error %>
+<%- end -%>
+
+<%- if $ansible::debug -%>
+debug = <%= $ansible::debug %>
+<%- end -%>
+
+<%- if $ansible::deprecate -%>
+deprecate = <%= $ansible::deprecate %>
+<%- end -%>
+
+<%- if $ansible::skip -%>
+skip = <%= $ansible::skip %>
+<%- end -%>
+
+<%- if $ansible::unreachable -%>
+unreachable = <%= $ansible::unreachable %>
+<%- end -%>
+
+<%- if $ansible::ok -%>
+ok = <%= $ansible::ok %>
+<%- end -%>
+
+<%- if $ansible::changed -%>
+changed = <%= $ansible::changed %>
+<%- end -%>
+
+<%- if $ansible::diff_add -%>
+diff_add = <%= $ansible::diff_add %>
+<%- end -%>
+
+<%- if $ansible::diff_remove -%>
+diff_remove = <%= $ansible::diff_remove %>
+<%- end -%>
+
+<%- if $ansible::diff_lines -%>
+diff_lines = <%= $ansible::diff_lines %>
+<%- end -%>
 
 
 [diff]
 
-always = no
+<%- if $ansible::always -%>
+always = <%= $ansible::always %>
+<%- end -%>
 
-context = 3
+<%- if $ansible::context -%>
+context = <%= $ansible::context %>
+<%- end -%>

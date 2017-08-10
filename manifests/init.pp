@@ -35,7 +35,8 @@
 # Authors
 # -------
 #
-# Author Name <author@domain.com>
+# Edgar Silva <edgarsilva948@gmail.com>
+# Vincius Xavier <viniciusxavierbove@gmail.com>
 #
 # Copyright
 # ---------
@@ -44,5 +45,6 @@
 #
 class ansible {
 
+include ::ansible::install
 
 }

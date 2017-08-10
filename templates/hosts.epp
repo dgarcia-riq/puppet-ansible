@@ -1,0 +1,7 @@
+# Managed by Puppet - do not modify
+
+<% $ansible::host::hosts.each do |entry| -%>
+
+<%= entry %>
+
+<% end -%>

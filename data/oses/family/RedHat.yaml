@@ -1,0 +1,82 @@
+---
+ansible::inventory: '/etc/ansible/hosts'
+ansible::library: '/usr/share/my_modules'
+ansible::module_utils: '/usr/share/my_module_utils/'
+ansible::local_tmp: '~/.ansible/tmp'
+ansible::forks: 5
+poll_interval: 15
+sudo_user: 'root'
+ask_sudo_pass: 'True'
+ask_pass: 'True'
+transport: 'smart'
+remote_port: '22'
+module_lang: 'C'
+module_set_locale: 'False'
+gathering: 'implicit'
+gather_subset: 'all'
+gather_timeout: '10'
+roles_path: '/etc/ansible/roles'
+host_key_checking: 'False'
+stdout_callback: 'skippy'
+callback_whitelist = timer, mail
+inventory_enabled = host_list, aws, openstack, docker
+task_includes_static = True
+handler_includes_static = True
+error_on_missing_handler = True
+sudo_exe = sudo
+sudo_flags = -H -S -n
+timeout = 10
+remote_user = root
+log_path = /var/log/ansible.log
+module_name = command
+executable = /bin/sh
+hash_behaviour = replace
+private_role_vars = yes
+jinja2_extensions = jinja2.ext.do,jinja2.ext.i18n
+private_key_file = /path/to/file
+vault_password_file = /path/to/vault_password_file
+ansible_managed = Ansible managed
+display_skipped_hosts = True
+display_args_to_stdout = False
+error_on_undefined_vars = False
+system_warnings = True
+deprecation_warnings = True
+command_warnings = False
+action_plugins = /usr/share/ansible/plugins/action
+cache_plugins = /usr/share/ansible/plugins/cache
+callback_plugins = /usr/share/ansible/plugins/callback
+connection_plugins = /usr/share/ansible/plugins/connection
+lookup_plugins = /usr/share/ansible/plugins/lookup
+inventory_plugins = /usr/share/ansible/plugins/inventory
+vars_plugins = /usr/share/ansible/plugins/vars
+filter_plugins = /usr/share/ansible/plugins/filter
+test_plugins = /usr/share/ansible/plugins/test
+terminal_plugins = /usr/share/ansible/plugins/terminal
+strategy_plugins = /usr/share/ansible/plugins/strategy
+strategy = free
+bin_ansible_callbacks = False
+nocows = 1
+cow_selection = default
+cow_selection = random
+cow_whitelist = bud-frogs,bunny,cheese,daemon,default,dragon,elephant-in-snake,elephant,eyes,\
+              hellokitty,kitty,luke-koala,meow,milk,moofasa,moose,ren,sheep,small,stegosaurus,\
+              stimpy,supermilker,three-eyes,turkey,turtle,tux,udder,vader-koala,vader,www
+nocolor = 1
+fact_caching = memory
+retry_files_enabled = False
+retry_files_save_path = ~/.ansible-retry
+squash_actions = apk,apt,dnf,homebrew,pacman,pkgng,yum,zypper
+no_log = False
+no_target_syslog = False
+allow_world_readable_tmpfiles = False
+var_compression_level = 9
+module_compression = 'ZIP_DEFLATED'
+max_diff_size = 1048576
+merge_multiple_cli_flags = True
+show_custom_stats = True
+inventory_ignore_extensions = ~, .orig, .bak, .ini, .cfg, .retry, .pyc, .pyo
+network_group_modules = ['eos', 'nxos', 'ios', 'iosxr', 'junos', 'vyos']
+restrict_facts_namespace =  True
+allow_unsafe_lookups = False
+any_errors_fatal = False
+...

@@ -1,4 +1,10 @@
 ---
+
+ansible::hosts:
+ - 'foo'
+ - 'bar'
+
+
 ansible::inventory: '/etc/ansible/hosts'
 ansible::library: '/usr/share/my_modules'
 ansible::module_utils: '/usr/share/my_module_utils/'
@@ -9,12 +15,12 @@ ansible::sudo_user: 'root'
 ansible::ask_sudo_pass: 'True'
 ansible::ask_pass: 'True'
 ansible::transport: 'smart'
-ansible::remote_port: '22'
+ansible::remote_port: 22
 ansible::module_lang: 'C'
 ansible::module_set_locale: 'False'
 ansible::gathering: 'implicit'
 ansible::gather_subset: 'all'
-ansible::gather_timeout: '10'
+ansible::gather_timeout: 10
 ansible::roles_path: '/etc/ansible/roles'
 ansible::host_key_checking: 'False'
 ansible::stdout_callback: 'skippy'

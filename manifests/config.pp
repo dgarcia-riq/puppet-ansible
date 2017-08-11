@@ -1,11 +1,10 @@
 # Class: Config
-
 class ansible::config {
 
   File {
-    mode    => '0640',
-    user    => 'root',
-    group   => 'root',
+    mode  => '0640',
+    owner  => 'root',
+    group => 'root',
   }
 
   file { '/etc/ansible/ansible.cfg':

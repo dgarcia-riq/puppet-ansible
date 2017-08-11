@@ -1,6 +1,4 @@
 ---
-
-
 ansible::install::packages:
   - 'epel-release'
   - 'python'

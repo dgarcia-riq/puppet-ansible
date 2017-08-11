@@ -2,488 +2,492 @@
 
 [defaults]
 
-<%- if $ansible::inventory -%>
-inventory = <%= $ansible::inventory %>
-<%- end -%>
+<%= $ansible::inventory %>
 
-<%- if $ansible::library -%>
+
+
+<% if $ansible::inventory { -%>
+inventory = <%= $inventory %>
+<% } -%>
+
+<%- if $ansible::library { -%>
 library = <%= $ansible::library %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::module_utils -%>
+<%- if $ansible::module_utils { -%>
 module_utils = <%= $ansible::module_utils %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::remote_tmp -%>
+<%- if $ansible::remote_tmp { -%>
 remote_tmp = <%= $ansible::remote_tmp %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::local_tmp -%>
+<%- if $ansible::local_tmp { -%>
 local_tmp = <%= $ansible::local_tmp %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::forks -%>
+<%- if $ansible::forks { -%>
 forks = <%= $ansible::forks %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::poll_interval -%>
+<%- if $ansible::poll_interval { -%>
 poll_interval = <%= $ansible::poll_interval %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::sudo_user -%>
+<%- if $ansible::sudo_user { -%>
 sudo_user = <%= $ansible::sudo_user %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::ask_sudo_pass -%>
+<%- if $ansible::ask_sudo_pass { -%>
 ask_sudo_pass = <%= $ansible::ask_sudo_pass %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::ask_pass -%>
+<%- if $ansible::ask_pass { -%>
 ask_pass = <%= $ansible::ask_pass %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::transport -%>
+<%- if $ansible::transport { -%>
 transport = <%= $ansible::transport %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::remote_port -%>
+<%- if $ansible::remote_port { -%>
 remote_port = <%= $ansible::remote_port %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::module_lang -%>
+<%- if $ansible::module_lang { -%>
 module_lang = <%= $ansible::module_lang %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::module_set_locale -%>
+<%- if $ansible::module_set_locale { -%>
 module_set_locale = <%= $ansible::module_set_locale %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::gathering -%>
+<%- if $ansible::gathering { -%>
 gathering = <%= $ansible::gathering %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::gather_subset -%>
+<%- if $ansible::gather_subset { -%>
 gather_subset = <%= $ansible::gather_subset %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::gather_timeout -%>
+<%- if $ansible::gather_timeout { -%>
 gather_timeout = <%= $ansible::gather_timeout %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::roles_path -%>
+<%- if $ansible::roles_path { -%>
 roles_path = <%= $ansible::roles_path %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::host_key_checking -%>
+<%- if $ansible::host_key_checking { -%>
 host_key_checking = <%= $ansible::host_key_checking %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::stdout_callback -%>
+<%- if $ansible::stdout_callback { -%>
 stdout_callback = <%= $ansible::stdout_callback %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::callback_whitelist -%>
+<%- if $ansible::callback_whitelist { -%>
 callback_whitelist = <%= $ansible::callback_whitelist %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::inventory_enabled -%>
+<%- if $ansible::inventory_enabled { -%>
 inventory_enabled = <%= $ansible::inventory_enabled %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::task_includes_static -%>
+<%- if $ansible::task_includes_static { -%>
 task_includes_static = <%= $ansible::task_includes_static %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::handler_includes_static -%>
+<%- if $ansible::handler_includes_static { -%>
 handler_includes_static = <%= $ansible::handler_includes_static %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::error_on_missing_handler -%>
+<%- if $ansible::error_on_missing_handler { -%>
 error_on_missing_handler = <%= $ansible::error_on_missing_handler %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::sudo_exe -%>
+<%- if $ansible::sudo_exe { -%>
 sudo_exe = <%= $ansible::sudo_exe %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::sudo_flags -%>
+<%- if $ansible::sudo_flags { -%>
 sudo_flags = <%= $ansible::sudo_flags %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::timeout -%>
+<%- if $ansible::timeout { -%>
 timeout = <%= $ansible::timeout %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::remote_user -%>
+<%- if $ansible::remote_user { -%>
 remote_user = <%= $ansible::remote_user %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::log_path -%>
+<%- if $ansible::log_path { -%>
 log_path = <%= $ansible::log_path %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::module_name -%>
+<%- if $ansible::module_name { -%>
 module_name = <%= $ansible::module_name %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::executable -%>
+<%- if $ansible::executable { -%>
 executable = <%= $ansible::executable %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::hash_behaviour -%>
+<%- if $ansible::hash_behaviour { -%>
 hash_behaviour = <%= $ansible::hash_behaviour %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::private_role_vars -%>
+<%- if $ansible::private_role_vars { -%>
 private_role_vars = <%= $ansible::private_role_vars %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::jinja2_extensions -%>
+<%- if $ansible::jinja2_extensions { -%>
 jinja2_extensions = <%= $ansible::jinja2_extensions %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::private_key_file -%>
+<%- if $ansible::private_key_file { -%>
 private_key_file = <%= $ansible::private_key_file %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::vault_password_file -%>
+<%- if $ansible::vault_password_file { -%>
 vault_password_file = <%= $ansible::vault_password_file %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::ansible_managed -%>
+<%- if $ansible::ansible_managed { -%>
 ansible_managed = <%= $ansible::ansible_managed %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::display_skipped_hosts -%>
+<%- if $ansible::display_skipped_hosts { -%>
 display_skipped_hosts = <%= $ansible::display_skipped_hosts %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::display_args_to_stdout -%>
+<%- if $ansible::display_args_to_stdout { -%>
 display_args_to_stdout = <%= $ansible::display_args_to_stdout %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::error_on_undefined_vars -%>
+<%- if $ansible::error_on_undefined_vars { -%>
 error_on_undefined_vars = <%= $ansible::error_on_undefined_vars %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::system_warnings -%>
+<%- if $ansible::system_warnings { -%>
 system_warnings = <%= $ansible::system_warnings %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::deprecation_warnings -%>
+<%- if $ansible::deprecation_warnings { -%>
 deprecation_warnings = <%= $ansible::deprecation_warnings %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::command_warnings -%>
+<%- if $ansible::command_warnings { -%>
 command_warnings = <%= $ansible::command_warnings %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::action_plugins -%>
+<%- if $ansible::action_plugins { -%>
 action_plugins = <%= $ansible::action_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::cache_plugins -%>
+<%- if $ansible::cache_plugins { -%>
 cache_plugins = <%= $ansible::cache_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::callback_plugins -%>
+<%- if $ansible::callback_plugins { -%>
 callback_plugins = <%= $ansible::callback_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::connection_plugins -%>
+<%- if $ansible::connection_plugins { -%>
 connection_plugins = <%= $ansible::connection_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::lookup_plugins -%>
+<%- if $ansible::lookup_plugins { -%>
 lookup_plugins = <%= $ansible::lookup_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::inventory_plugins -%>
+<%- if $ansible::inventory_plugins { -%>
 inventory_plugins = <%= $ansible::inventory_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::vars_plugins -%>
+<%- if $ansible::vars_plugins { -%>
 vars_plugins = <%= $ansible::vars_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::filter_plugins -%>
+<%- if $ansible::filter_plugins { -%>
 filter_plugins = <%= $ansible::filter_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::test_plugins -%>
+<%- if $ansible::test_plugins { -%>
 test_plugins = <%= $ansible::test_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::terminal_plugins -%>
+<%- if $ansible::terminal_plugins { -%>
 terminal_plugins = <%= $ansible::terminal_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::strategy_plugins -%>
+<%- if $ansible::strategy_plugins { -%>
 strategy_plugins = <%= $ansible::strategy_plugins %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::strategy -%>
+<%- if $ansible::strategy { -%>
 strategy = <%= $ansible::strategy %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::bin_ansible_callbacks -%>
+<%- if $ansible::bin_ansible_callbacks { -%>
 bin_ansible_callbacks = <%= $ansible::bin_ansible_callbacks %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::nocows -%>
+<%- if $ansible::nocows { -%>
 nocows = <%= $ansible::nocows %>
-<%- end -%>
+<%- } -%>
 
 
-<%- if $ansible::cow_selection -%>
+<%- if $ansible::cow_selection { -%>
 cow_selection = <%= $ansible::cow_selection %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::cow_whitelist -%>
+<%- if $ansible::cow_whitelist { -%>
 cow_whitelist = <%= $ansible::cow_whitelist %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::nocolor -%>
+<%- if $ansible::nocolor { -%>
 nocolor = <%= $ansible::nocolor %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::fact_caching -%>
+<%- if $ansible::fact_caching { -%>
 fact_caching = <%= $ansible::fact_caching %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::retry_files_enabled -%>
+<%- if $ansible::retry_files_enabled { -%>
 retry_files_enabled = <%= $ansible::retry_files_enabled %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::retry_files_save_path -%>
+<%- if $ansible::retry_files_save_path { -%>
 retry_files_save_path = <%= $ansible::retry_files_save_path %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::squash_actions -%>
+<%- if $ansible::squash_actions { -%>
 squash_actions = <%= $ansible::squash_actions %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::no_log -%>
+<%- if $ansible::no_log { -%>
 no_log = <%= $ansible::no_log %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::no_target_syslog -%>
+<%- if $ansible::no_target_syslog { -%>
 no_target_syslog = <%= $ansible::no_target_syslog %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::allow_world_readable_tmpfiles -%>
+<%- if $ansible::allow_world_readable_tmpfiles { -%>
 allow_world_readable_tmpfiles = <%= $ansible::allow_world_readable_tmpfiles %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::var_compression_level -%>
+<%- if $ansible::var_compression_level { -%>
 var_compression_level = <%= $ansible::var_compression_level %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::module_compression -%>
+<%- if $ansible::module_compression { -%>
 module_compression = <%= $ansible::module_compression %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::max_diff_size -%>
+<%- if $ansible::max_diff_size { -%>
 max_diff_size = <%= $ansible::max_diff_size %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::merge_multiple_cli_flags -%>
+<%- if $ansible::merge_multiple_cli_flags { -%>
 merge_multiple_cli_flags = <%= $ansible::merge_multiple_cli_flags %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::show_custom_stats -%>
+<%- if $ansible::show_custom_stats { -%>
 show_custom_stats = <%= $ansible::show_custom_stats %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::inventory_ignore_extensions -%>
+<%- if $ansible::inventory_ignore_extensions { -%>
 inventory_ignore_extensions = <%= $ansible::inventory_ignore_extensions %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::network_group_modules -%>
+<%- if $ansible::network_group_modules { -%>
 network_group_modules = <%= $ansible::network_group_modules %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::restrict_facts_namespace -%>
+<%- if $ansible::restrict_facts_namespace { -%>
 restrict_facts_namespace = <%= $ansible::restrict_facts_namespace %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::allow_unsafe_lookups -%>
+<%- if $ansible::allow_unsafe_lookups { -%>
 allow_unsafe_lookups = <%= $ansible::allow_unsafe_lookups %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::any_errors_fatal -%>
+<%- if $ansible::any_errors_fatal { -%>
 any_errors_fatal = <%= $ansible::any_errors_fatal %>
-<%- end -%>
+<%- } -%>
 
 [privilege_escalation]
 
-<%- if $ansible::become -%>
+<%- if $ansible::become { -%>
 become = <%= $ansible::become %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::become_method -%>
+<%- if $ansible::become_method { -%>
 become_method = <%= $ansible::become_method %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::become_user -%>
+<%- if $ansible::become_user { -%>
 become_user = <%= $ansible::become_user %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::become_ask_pass -%>
+<%- if $ansible::become_ask_pass { -%>
 become_ask_pass = <%= $ansible::become_ask_pass %>
-<%- end -%>
+<%- } -%>
 
 [paramiko_connection]
 
-<%- if $ansible::record_host_keys -%>
+<%- if $ansible::record_host_keys { -%>
 record_host_keys = <%= $ansible::record_host_keys %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::pty -%>
+<%- if $ansible::pty { -%>
 pty = <%= $ansible::pty %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::look_for_keys -%>
+<%- if $ansible::look_for_keys { -%>
 look_for_keys = <%= $ansible::look_for_keys %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::host_key_auto_add -%>
+<%- if $ansible::host_key_auto_add { -%>
 host_key_auto_add = <%= $ansible::host_key_auto_add %>
-<%- end -%>
+<%- } -%>
 
 [ssh_connection]
 
-<%- if $ansible::ssh_args -%>
+<%- if $ansible::ssh_args { -%>
 ssh_args = <%= $ansible::ssh_args %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::control_path_dir -%>
+<%- if $ansible::control_path_dir { -%>
 control_path_dir = <%= $ansible::control_path_dir %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::control_path -%>
+<%- if $ansible::control_path { -%>
 control_path = <%= $ansible::control_path %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::pipelining -%>
+<%- if $ansible::pipelining { -%>
 pipelining = <%= $ansible::pipelining %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::scp_if_ssh -%>
+<%- if $ansible::scp_if_ssh { -%>
 scp_if_ssh = <%= $ansible::scp_if_ssh %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::transfer_method -%>
+<%- if $ansible::transfer_method { -%>
 transfer_method = <%= $ansible::transfer_method %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::sftp_batch_mode -%>
+<%- if $ansible::sftp_batch_mode { -%>
 sftp_batch_mode = <%= $ansible::sftp_batch_mode %>
-<%- end -%>
+<%- } -%>
 
 [persistent_connection]
 
-<%- if $ansible::connect_timeout -%>
+<%- if $ansible::connect_timeout { -%>
 connect_timeout = <%= $ansible::connect_timeout %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::connect_retry_timeout -%>
+<%- if $ansible::connect_retry_timeout { -%>
 connect_retry_timeout = <%= $ansible::connect_retry_timeout %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::command_timeout -%>
+<%- if $ansible::command_timeout { -%>
 command_timeout = <%= $ansible::command_timeout %>
-<%- end -%>
+<%- } -%>
 
 [accelerate]
 
-<%- if $ansible::accelerate_port -%>
+<%- if $ansible::accelerate_port { -%>
 accelerate_port = <%= $ansible::accelerate_port %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::accelerate_timeout -%>
+<%- if $ansible::accelerate_timeout { -%>
 accelerate_timeout = <%= $ansible::accelerate_timeout %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::accelerate_connect_timeout -%>
+<%- if $ansible::accelerate_connect_timeout { -%>
 accelerate_connect_timeout = <%= $ansible::accelerate_connect_timeout %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::accelerate_multi_key -%>
+<%- if $ansible::accelerate_multi_key { -%>
 accelerate_multi_key = <%= $ansible::accelerate_multi_key %>
-<%- end -%>
+<%- } -%>
 
 [selinux]
 
-<%- if $ansible::special_context_filesystems -%>
+<%- if $ansible::special_context_filesystems { -%>
 special_context_filesystems = <%= $ansible::special_context_filesystems %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::libvirt_lxc_noseclabel -%>
+<%- if $ansible::libvirt_lxc_noseclabel { -%>
 libvirt_lxc_noseclabel = <%= $ansible::libvirt_lxc_noseclabel %>
-<%- end -%>
+<%- } -%>
 
 [colors]
 
-<%- if $ansible::highlight -%>
+<%- if $ansible::highlight { -%>
 highlight = <%= $ansible::highlight %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::verbose -%>
+<%- if $ansible::verbose { -%>
 verbose = <%= $ansible::verbose %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::warn -%>
+<%- if $ansible::warn { -%>
 warn = <%= $ansible::warn %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::error -%>
+<%- if $ansible::error { -%>
 error = <%= $ansible::error %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::debug -%>
+<%- if $ansible::debug { -%>
 debug = <%= $ansible::debug %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::deprecate -%>
+<%- if $ansible::deprecate { -%>
 deprecate = <%= $ansible::deprecate %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::skip -%>
+<%- if $ansible::skip { -%>
 skip = <%= $ansible::skip %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::unreachable -%>
+<%- if $ansible::unreachable { -%>
 unreachable = <%= $ansible::unreachable %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::ok -%>
+<%- if $ansible::ok { -%>
 ok = <%= $ansible::ok %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::changed -%>
+<%- if $ansible::changed { -%>
 changed = <%= $ansible::changed %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::diff_add -%>
+<%- if $ansible::diff_add { -%>
 diff_add = <%= $ansible::diff_add %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::diff_remove -%>
+<%- if $ansible::diff_remove { -%>
 diff_remove = <%= $ansible::diff_remove %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::diff_lines -%>
+<%- if $ansible::diff_lines { -%>
 diff_lines = <%= $ansible::diff_lines %>
-<%- end -%>
+<%- } -%>
 
 
 [diff]
 
-<%- if $ansible::always -%>
+<%- if $ansible::always { -%>
 always = <%= $ansible::always %>
-<%- end -%>
+<%- } -%>
 
-<%- if $ansible::context -%>
+<%- if $ansible::context { -%>
 context = <%= $ansible::context %>
-<%- end -%>
+<%- } -%>

@@ -1,7 +1,7 @@
 # Managed by Puppet - do not modify
 
-<% $ansible::host::hosts.each do |entry| -%>
+<% $ansible::hosts.each |$entry| { -%>
 
-<%= entry %>
+<%= $entry %>
 
-<% end -%>
+<% } -%>

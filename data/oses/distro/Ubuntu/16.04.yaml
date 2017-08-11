@@ -1,6 +1,0 @@
----
-ansible::install::packages:
-  - 'python'
-  - 'python3.5'
-  - 'python-pip' 
-...

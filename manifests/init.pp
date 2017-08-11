@@ -4,7 +4,7 @@
 # Full description of class ansible here.
 #
 # Parameters
-# ----------
+# -----------
 #
 # Document parameters here.
 #

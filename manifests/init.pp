@@ -20,17 +20,17 @@
 # * `sample variable`
 #  Explanation of how this variable affects the function of this class and if
 #  it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#  External Node Classifier as a comma separated list of hostnames." (Note,
-#  global variables should be avoided in favor of class parameters as
-#  of Puppet 2.6.)
+# External Node Classifier as a comma separated list of hostnames." (Note,
+# global variables should be avoided in favor of class parameters as
+# of Puppet 2.6.)
 #
 # Examples
 # --------
 #
 # @example
-#    class { 'ansible':
-#      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#    }
+#  class {   ansible  :
+#   servers => [   pool.ntp.org  ,   ntp.local.company.com   ],
+#  }
 #
 # Authors
 # -------
@@ -43,8 +43,87 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class ansible {
+class ansible (
+Integer $gather_timeout,
+Integer $forks,
+Integer $poll_interval,
+Integer $remote_port,
+Integer $sudo_flags,
+Integer $timeout,
+Integer $max_diff_size,
+Integer $nocows,
+Integer $nocolor,
+Integer $var_compression_level,
+String $cow_selection,
+String $cow_whitelist,
+String $action_plugins,
+String $cache_plugins,
+String $callback_plugins,
+String $connection_plugins,
+String $lookup_plugins,
+String $inventory_plugins,
+String $vars_plugins,
+String $filter_plugins,
+String $test_plugins,
+String $terminal_plugins,
+String $strategy_plugins,
+String $strategy,
+String $remote_user,
+String $log_path,
+String $module_name,
+String $executable,
+String $hash_behaviour,
+String $private_role_vars,
+String $jinja2_extensions,
+String $private_key_file,
+String $vault_password_file,
+String $ansible_managed,
+String $inventory,
+String $library,
+String $module_utils,
+String $local_tmp,
+String $sudo_user,
+String $inventory_ignore_extensions,
+String $network_group_modules,
+String $transport,
+String $module_lang,
+String $gathering,
+String $gather_subset,
+String $roles_path,
+String $stdout_callback,
+String $callback_whitelist,
+String $inventory_enabled,
+String $sudo_exe,
+String $retry_files_save_path,
+String $squash_actions,
+String $fact_caching,
+String $module_compression,
+Boolean $bin_callbacks,
+Boolean $retry_files_enabled,
+Boolean $display_skipped_hosts,
+Boolean $display_args_to_stdout,
+Boolean $error_on_undefined_vars,
+Boolean $system_warnings,
+Boolean $deprecation_warnings,
+Boolean $command_warnings,
+Boolean $no_log,
+Boolean $no_target_syslog,
+Boolean $allow_world_readable_tmpfiles,
+Boolean $merge_multiple_cli_flags,
+Boolean $show_custom_stats,
+Boolean $ask_sudo_pass,
+Boolean $ask_pass,
+Boolean $restrict_facts_namespace,
+Boolean $allow_unsafe_lookups,
+Boolean $any_errors_fatal,
+Boolean $module_set_locale,
+Boolean $task_includes_static,
+Boolean $handler_includes_static,
+Boolean $error_on_missing_handler,
+Boolean $host_key_checking,
 
-include ::ansible::install
+) {
+
+include ansible::install
 
 }

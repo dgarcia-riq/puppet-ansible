@@ -1,2 +1,82 @@
 ---
+ansible::inventory: '/etc/ansible/hosts'
+ansible::library: '/usr/share/my_modules'
+ansible::module_utils: '/usr/share/my_module_utils/'
+ansible::local_tmp: '~/.ansible/tmp'
+ansible::forks: 5
+ansible::poll_interval: 15
+ansible::sudo_user: 'root'
+ansible::ask_sudo_pass: 'True'
+ansible::ask_pass: 'True'
+ansible::transport: 'smart'
+ansible::remote_port: '22'
+ansible::module_lang: 'C'
+ansible::module_set_locale: 'False'
+ansible::gathering: 'implicit'
+ansible::gather_subset: 'all'
+ansible::gather_timeout: '10'
+ansible::roles_path: '/etc/ansible/roles'
+ansible::host_key_checking: 'False'
+ansible::stdout_callback: 'skippy'
+ansible::callback_whitelist: timer, mail
+ansible::inventory_enabled: host_list, aws, openstack, docker
+ansible::task_includes_static: True
+ansible::handler_includes_static: True
+ansible::error_on_missing_handler: True
+ansible::sudo_exe: sudo
+ansible::sudo_flags: -H -S -n
+ansible::timeout: 10
+ansible::remote_user: root
+ansible::log_path: /var/log/ansible.log
+ansible::module_name: command
+ansible::executable: /bin/sh
+ansible::hash_behaviour: replace
+ansible::private_role_vars: yes
+ansible::jinja2_extensions: jinja2.ext.do,jinja2.ext.i18n
+ansible::private_key_file: /path/to/file
+ansible::vault_password_file: /path/to/vault_password_file
+ansible::ansible_managed: Ansible managed
+ansible::display_skipped_hosts: True
+ansible::display_args_to_stdout: False
+ansible::error_on_undefined_vars: False
+ansible::system_warnings: True
+ansible::deprecation_warnings: True
+ansible::command_warnings: False
+ansible::action_plugins: /usr/share/ansible/plugins/action
+ansible::cache_plugins: /usr/share/ansible/plugins/cache
+ansible::callback_plugins: /usr/share/ansible/plugins/callback
+ansible::connection_plugins: /usr/share/ansible/plugins/connection
+ansible::lookup_plugins: /usr/share/ansible/plugins/lookup
+ansible::inventory_plugins: /usr/share/ansible/plugins/inventory
+ansible::vars_plugins: /usr/share/ansible/plugins/vars
+ansible::filter_plugins: /usr/share/ansible/plugins/filter
+ansible::test_plugins: /usr/share/ansible/plugins/test
+ansible::terminal_plugins: /usr/share/ansible/plugins/terminal
+ansible::strategy_plugins: /usr/share/ansible/plugins/strategy
+ansible::strategy: free
+ansible::bin_ansible_callbacks: False
+ansible::nocows: 1
+ansible::cow_selection: default
+ansible::cow_selection: random
+ansible::cow_whitelist: bud-frogs,bunny,cheese,daemon,default,dragon,elephant-in-snake,elephant,eyes,\
+ansible::              hellokitty,kitty,luke-koala,meow,milk,moofasa,moose,ren,sheep,small,stegosaurus,\
+ansible::              stimpy,supermilker,three-eyes,turkey,turtle,tux,udder,vader-koala,vader,www
+ansible::nocolor: 1
+ansible::fact_caching: memory
+ansible::retry_files_enabled: False
+ansible::retry_files_save_path: ~/.ansible-retry
+ansible::squash_actions: apk,apt,dnf,homebrew,pacman,pkgng,yum,zypper
+ansible::no_log: False
+ansible::no_target_syslog: False
+ansible::allow_world_readable_tmpfiles: False
+ansible::var_compression_level: 9
+ansible::module_compression: 'ZIP_DEFLATED'
+ansible::max_diff_size: 1048576
+ansible::merge_multiple_cli_flags: True
+ansible::show_custom_stats: True
+ansible::inventory_ignore_extensions: ~, .orig, .bak, .ini, .cfg, .retry, .pyc, .pyo
+ansible::network_group_modules: ['eos', 'nxos', 'ios', 'iosxr', 'junos', 'vyos']
+ansible::restrict_facts_namespace:  True
+ansible::allow_unsafe_lookups: False
+ansible::any_errors_fatal: False
 ...

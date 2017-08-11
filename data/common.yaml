@@ -9,6 +9,7 @@ ansible::inventory: '/etc/ansible/hosts'
 ansible::library: '/usr/share/my_modules'
 ansible::module_utils: '/usr/share/my_module_utils/'
 ansible::local_tmp: '~/.ansible/tmp'
+ansible::remote_tmp: ~/.ansible/tmp 
 ansible::forks: 5
 ansible::poll_interval: 15
 ansible::sudo_user: 'root'
@@ -65,8 +66,8 @@ ansible::nocows: 1
 ansible::cow_selection: default
 ansible::cow_selection: random
 ansible::cow_whitelist: bud-frogs,bunny,cheese,daemon,default,dragon,elephant-in-snake,elephant,eyes,\
-ansible::              hellokitty,kitty,luke-koala,meow,milk,moofasa,moose,ren,sheep,small,stegosaurus,\
-ansible::              stimpy,supermilker,three-eyes,turkey,turtle,tux,udder,vader-koala,vader,www
+              hellokitty,kitty,luke-koala,meow,milk,moofasa,moose,ren,sheep,small,stegosaurus,\
+              stimpy,supermilker,three-eyes,turkey,turtle,tux,udder,vader-koala,vader,www
 ansible::nocolor: 1
 ansible::fact_caching: memory
 ansible::retry_files_enabled: False
@@ -87,4 +88,41 @@ ansible::allow_unsafe_lookups: False
 ansible::any_errors_fatal: False
 ansible::ok: green
 ansible::context: 3
+ansible::always: no
+ansible::diff_lines: cyan
+ansible::diff_remove: red
+ansible::diff_add: green
+ansible::changed: yellow
+ansible::unreachable: red
+ansible::skip: cyan
+ansible::deprecate: purple
+ansible::debug: dark gray
+ansible::error: red
+ansible::warn: bright purple
+ansible::verbose: blue
+ansible::highlight: white
+ansible::libvirt_lxc_noseclabel: yes
+ansible::special_context_filesystems: nfs,vboxsf,fuse,ramfs,9p
+ansible::accelerate_multi_key: yes
+ansible::accelerate_connect_timeout: 5.0
+ansible::accelerate_timeout: 30
+ansible::accelerate_port: 5099
+ansible::command_timeout: 10
+ansible::connect_retry_timeout: 15
+ansible::connect_timeout: 30
+ansible::sftp_batch_mode: False
+ansible::transfer_method: smart
+ansible::scp_if_ssh: smart
+ansible::pipelining: False
+ansible::control_path: /path
+ansible::control_path_dir: ~/.ansible/cp
+ansible::ssh_args: -C -o ControlMaster=auto -o ControlPersist=60s
+ansible::host_key_auto_add: True
+ansible::look_for_keys: False
+ansible::pty: False
+ansible::record_host_keys: False
+ansible::become_ask_pass: False
+ansible::become_user: root
+ansible::become_method: sudo
+ansible::become: True
 ...

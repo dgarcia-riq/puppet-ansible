@@ -2,12 +2,8 @@
 
 [defaults]
 
-<%= $ansible::inventory %>
-
-
-
-<% if $ansible::inventory { -%>
-inventory = <%= $inventory %>
+<%- if $ansible::inventory { -%>
+inventory = <%= $ansible::inventory %>
 <% } -%>
 
 <%- if $ansible::library { -%>

@@ -85,4 +85,6 @@ ansible::network_group_modules: ['eos', 'nxos', 'ios', 'iosxr', 'junos', 'vyos']
 ansible::restrict_facts_namespace:  True
 ansible::allow_unsafe_lookups: False
 ansible::any_errors_fatal: False
+ansible::ok: green
+ansible::context: 3
 ...

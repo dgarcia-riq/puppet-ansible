@@ -45,6 +45,7 @@
 #
 class ansible (
 Integer $gather_timeout,
+Integer $context,
 Integer $forks,
 Integer $poll_interval,
 Integer $remote_port,
@@ -71,6 +72,7 @@ String $strategy,
 String $ask_sudo_pass,
 String $remote_user,
 String $log_path,
+String $ok,
 #String $module_name,
 String $executable,
 String $hash_behaviour,

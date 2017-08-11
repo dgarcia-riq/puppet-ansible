@@ -2,18 +2,21 @@
 class ansible::config {
 
   File {
-    mode  => '0640',
+    ensure => 'file',
+    mode   => '0755',
     owner  => 'root',
-    group => 'root',
+    group  => 'root',
   }
 
-  file { '/etc/ansible/ansible.cfg':
-    ensure  => 'present',
+  file { '/etc/ansible':
+    ensure => 'directory',
+  }
+
+  -> file { '/etc/ansible/ansible.cfg':
     content => epp('ansible/ansible.cfg.epp'),
   }
 
   file { '/etc/ansible/hosts':
-    ensure  => 'present',
     content => epp('ansible/hosts.epp'),
   }
 

@@ -6,10 +6,8 @@ class ansible::install (
   package { $packages:
     ensure => 'latest',
   }
-
   -> package { 'ansible':
     ensure   => 'latest',
     provider => 'pip',
   }
-
 }

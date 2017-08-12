@@ -160,9 +160,7 @@ Boolean $handler_includes_static,
 Boolean $error_on_missing_handler,
 Boolean $private_role_vars,
 Tuple $network_group_modules,
-Array $hosts,
 Float $accelerate_connect_timeout,
-
 ) {
 
 include ::ansible::install

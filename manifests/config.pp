@@ -12,12 +12,21 @@ class ansible::config {
     ensure => 'directory',
   }
 
-  -> file { '/etc/ansible/ansible.cfg':
+  file { '/etc/ansible/ansible.cfg':
     content => epp('ansible/ansible.cfg.epp'),
   }
 
-  file { '/etc/ansible/hosts':
-    content => epp('ansible/hosts.epp'),
+  concat { '/etc/ansible/hosts': 
+    ensure => present,
+    mode   => '0755',
+    owner  => 'root',
+    group  => 'root',
+  }
+
+  concat::fragment { 'hosts_header': 
+    target  => '/etc/ansible/hosts',
+    content => "# Managed by Puppet - do not modify\n\n",
+    order   => '01',
   }
 
 }

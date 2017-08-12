@@ -1,10 +1,4 @@
 ---
-
-ansible::hosts:
- - 'foo'
- - 'bar'
-
-
 ansible::inventory: '/etc/ansible/hosts'
 ansible::library: '/usr/share/my_modules'
 ansible::module_utils: '/usr/share/my_module_utils/'
@@ -64,7 +58,6 @@ ansible::strategy: free
 ansible::bin_ansible_callbacks: False
 ansible::nocows: 1
 ansible::cow_selection: default
-ansible::cow_selection: random
 ansible::cow_whitelist: bud-frogs,bunny,cheese,daemon,default,dragon,elephant-in-snake,elephant,eyes,\
               hellokitty,kitty,luke-koala,meow,milk,moofasa,moose,ren,sheep,small,stegosaurus,\
               stimpy,supermilker,three-eyes,turkey,turtle,tux,udder,vader-koala,vader,www

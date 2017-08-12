@@ -1,18 +1,18 @@
+# This define type manage all entry of hosts file
+
 define ansible::hosts (
-  Hash $entry,
+  String $section,
+  Array $entrys,
+
 ) {
-  
-  $file = '/etc/ansible/hosts'
 
-  concat { $file:
-    owner => 'root',
-    group => 'root',
-    mode  => '0644'
+  concat::fragment { $title:
+    target  => '/etc/ansible/hosts',
+    content => epp('ansible/hosts.epp',
+      {
+        section => $section,
+        entrys  => $entrys,
+      }),
   }
 
-  concat::fragment{ 'teste':
-    target  => $file,
-    content => "\nPuppet modules on this server:\n\n",
-    order   => '01'
-  }
 }

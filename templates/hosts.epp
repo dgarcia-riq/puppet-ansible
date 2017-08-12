@@ -1,7 +1,4 @@
-# Managed by Puppet - do not modify
-
-<% $ansible::hosts.each |$entry| { -%>
-
+[<%= $section %>]
+<% $entrys.each |$entry| { -%>
 <%= $entry %>
-
 <% } -%>

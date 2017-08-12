@@ -168,6 +168,7 @@ Float $accelerate_connect_timeout,
 include ::ansible::install
 include ::ansible::config
 
-Class['ansible::install'] -> Class['ansible::config']
+Class['ansible::install']
+-> Class['ansible::config']
 
 }

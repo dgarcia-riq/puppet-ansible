@@ -62,15 +62,19 @@ class {'ansible':
 }
 ```
 
-## Reference
+# Reference
 
-# Classes
+## Defined Types
 
-## Public classes
+* `hosts` - Set hosts entries
+
+## Classes
+
+### Public classes
 
 * ansible: Main class, includes all other classes.
 
-## Private classes
+### Private classes
 
 * ntp::install: Handles the packages.
 * ntp::config: Handles the configuration file.

@@ -122,8 +122,8 @@ remote_user = <%= $ansible::remote_user %>
 log_path = <%= $ansible::log_path %>
 <%- } -%>
 
-<%- if $ansible::module_name { -%>
-module_name = <%= $ansible::module_name %>
+<%- if $ansible::name_module { -%>
+name_module = <%= $ansible::name_module %>
 <%- } -%>
 
 <%- if $ansible::executable { -%>

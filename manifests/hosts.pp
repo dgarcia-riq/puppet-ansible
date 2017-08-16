@@ -1,16 +1,14 @@
-# This define type manage all entry of hosts file
+# This define type manage all entrys of hosts file
 
 define ansible::hosts (
-  String $section,
-  Array $entrys,
-
+  Array $entrys
 ) {
 
   concat::fragment { $title:
-    target  => '/etc/ansible/hosts',
+    target  => "${ansible::confdir}/hosts",
     content => epp('ansible/hosts.epp',
       {
-        section => $section,
+        section => $title,
         entrys  => $entrys,
       }),
   }

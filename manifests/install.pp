@@ -1,13 +1,11 @@
 ## Class to install core packages and ansible
-class ansible::install (
-  Array $packages
-) {
+class ansible::install {
 
-  package { $packages:
-    ensure => 'latest',
+  package { $ansible::packages:
+    ensure => $ansible::version,
   }
-  -> package { 'ansible':
-    ensure   => 'latest',
-    provider => 'pip',
+  -> package { $ansible::package_name:
+    ensure   => $ansible::version,
+    provider => $ansible::provider,
   }
 }

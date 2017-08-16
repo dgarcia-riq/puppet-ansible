@@ -1,5 +1,5 @@
 ---
-ansible::install::packages:
+ansible::packages:
   - 'epel-release'
   - 'python'
   - 'PyYAML'

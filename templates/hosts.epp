@@ -1,4 +1,5 @@
-[<%= $title %>]
+
+[<%= $section %>]
 <% $entrys.each |$entry| { -%>
 <%= $entry %>
 <% } -%>

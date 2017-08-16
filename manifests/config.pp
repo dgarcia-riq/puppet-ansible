@@ -16,7 +16,7 @@ class ansible::config {
     content => epp('ansible/ansible.cfg.epp'),
   }
 
-  concat { "${ansible::confdir}/ansible.cfg":
+  concat { "${ansible::confdir}/hosts":
     ensure => present,
     mode   => '0755',
     owner  => $ansible::user,
@@ -24,8 +24,8 @@ class ansible::config {
   }
 
   concat::fragment { 'hosts_header':
-    target  => $ansible::confdir,
-    content => "# Managed by Puppet - do not modify\n\n",
+    target  => "${ansible::confdir}/hosts",
+    content => "# Managed by Puppet - do not modify\n",
     order   => '01',
   }
 

@@ -54,7 +54,7 @@ ansible::hosts { 'databases':
 ### Change parameter in ansible.cfg
 
 ```puppet
-class {'ansible':
+class { 'ansible':
   roles_path       => /srv/roles,
   timeout          => 30,
   logs_path        => /var/log/ansible.log,

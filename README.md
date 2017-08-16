@@ -1,6 +1,6 @@
-# ansible
+# Puppet module: Ansible
 
-#### Table of Contents
+### Table of Contents
 
 1. [Module Description - What the module does and why it is useful](#module-description)
 1. [Setup - The basics of getting started with ntp](#setup)
@@ -9,13 +9,13 @@
 1. [Limitations - OS compatibility, etc.](#limitations)
 
 
-## Module description
+# Module description
 
 The ansible module installs and configures the Ansible across a range of operating systems and distributions.
 
-## Setup
+# Setup
 
-### Beginning with ansible
+## Beginning with ansible
 
 `include '::ansible'` is enough to get you up and running. To pass in parameters specifying hosts entries use:
 
@@ -41,37 +41,41 @@ To control all the parameters of the configuration file use the main `::ansible`
 ### Install and specifying hosts
 
 ```puppet
+include '::ansible'
 
-  include '::ansible'
-
-  ansible::hosts { 'databases':
-    entrys  => [
-      '172.16.0.30', 
-      '172.16.0.40',
-      ]
-  }
+ansible::hosts { 'databases':
+  entrys  => [
+    '172.16.0.30', 
+    '172.16.0.40',
+    ]
+}
 ```
 
 ### Change parameter in ansible.cfg
 
 ```puppet
-
+class {'ansible':
+  roles_path       => /srv/roles,
+  timeout          => 30,
+  logs_path        => /var/log/ansible.log,
+  private_key_file => /etc/keys, 
+}
 ```
 
 ## Reference
 
-### Classes
+# Classes
 
-#### Public classes
+## Public classes
 
 * ansible: Main class, includes all other classes.
 
-#### Private classes
+## Private classes
 
 * ntp::install: Handles the packages.
 * ntp::config: Handles the configuration file.
 
-### Parameters
+## Parameters
 
 The following parameters are available in the `::ansible` class:
 
@@ -1295,7 +1299,10 @@ Default value: `root`.
 
 This module has been tested on [Centos 7.3, Ubuntu 16.04 and Debian 9].
 
-### Contributors
+## Contributors
 
-Edgar Silva <edgarsilva948@gmail.com>
-Vincius Xavier <viniciusxavierbove@gmail.com>
+* Edgar Silva <edgarsilva948@gmail.com>
+* Vincius Xavier <viniciusxavierbove@gmail.com>
+
+## Copyright
+* Otherskins, Inc.

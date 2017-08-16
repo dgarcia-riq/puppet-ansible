@@ -2,88 +2,1300 @@
 
 #### Table of Contents
 
-1. [Description](#description)
-1. [Setup - The basics of getting started with ansible](#setup)
-    * [What ansible affects](#what-ansible-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with ansible](#beginning-with-ansible)
+1. [Module Description - What the module does and why it is useful](#module-description)
+1. [Setup - The basics of getting started with ntp](#setup)
 1. [Usage - Configuration options and additional functionality](#usage)
 1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 1. [Limitations - OS compatibility, etc.](#limitations)
-1. [Development - Guide for contributing to the module](#development)
 
-## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what
-problem it solves. This is your 30-second elevator pitch for your module.
-Consider including OS/Puppet version it works with.
+## Module description
 
-You can give more descriptive information in a second paragraph. This paragraph
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?" If your module has a range of functionality (installation, configuration,
-management, etc.), this is the time to mention it.
+The ansible module installs and configures the Ansible across a range of operating systems and distributions.
 
 ## Setup
 
-### What ansible affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For
-example, folks can probably figure out that your mysql_instance module affects
-their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you might want to include an additional "Upgrading" section
-here.
-
 ### Beginning with ansible
 
-The very basic steps needed for a user to get the module up and running. This
-can include setup steps, if necessary, or it can be an example of the most
-basic use of the module.
+`include '::ansible'` is enough to get you up and running. To pass in parameters specifying hosts entries use:
+
+```puppet
+  ansible::hosts { 'webservers':
+    entrys  => [
+      '172.16.0.10', 
+      '172.16.0.20',
+    ]
+  }
+```
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the
-fancy stuff with your module here. It's especially helpful if you include usage
-examples and code samples for doing things with your module.
+To control all the parameters of the configuration file use the main `::ansible` class. See the common usages below for examples.
+
+### Install ansible
+
+```puppet
+  include '::ansible'
+```
+
+### Install and specifying hosts
+
+```puppet
+
+  include '::ansible'
+
+  ansible::hosts { 'databases':
+    entrys  => [
+      '172.16.0.30', 
+      '172.16.0.40',
+      ]
+  }
+```
+
+### Change parameter in ansible.cfg
+
+```puppet
+
+```
 
 ## Reference
 
-Users need a complete list of your module's classes, types, defined types providers, facts, and functions, along with the parameters for each. You can provide this list either via Puppet Strings code comments or as a complete list in this Reference section.
+### Classes
 
-* If you are using Puppet Strings code comments, this Reference section should include Strings information so that your users know how to access your documentation.
+#### Public classes
 
-* If you are not using Puppet Strings, include a list of all of your classes, defined types, and so on, along with their parameters. Each element in this listing should include:
+* ansible: Main class, includes all other classes.
 
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
+#### Private classes
+
+* ntp::install: Handles the packages.
+* ntp::config: Handles the configuration file.
+
+### Parameters
+
+The following parameters are available in the `::ansible` class:
+
+#### `gather_timeout`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+
+#### `accelerate_timeout`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+
+#### `accelerate_port`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+
+#### `command_timeout`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+
+#### `connect_retry_timeout`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `connect_timeout`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `context`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `forks`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `poll_interval`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `remote_port`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `timeout`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `max_diff_size`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `nocows`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `nocolor`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `var_compression_level`
+
+Optional.
+
+Data type: Integer.
+
+Description: 
+
+Default value: `undef`.
+
+#### `sudo_flags`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `cow_selection`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `cow_whitelist`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `action_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `cache_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `callback_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `diff_add`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `special_context_filesystems`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `changed`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `unreachable`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `debug`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `error`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `warn`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `verbose`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `highlight`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `deprecate`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `skip`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `connection_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `lookup_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `inventory_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `vars_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `filter_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `diff_lines`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `diff_remove`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `test_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `terminal_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `strategy_plugins`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `strategy`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `ask_sudo_pass`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `remote_user`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `ok`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `log_path`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `name_module`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `jinja2_extensions`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `vault_password_file`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `module_utils`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `ansible_managed`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `sudo_user`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `inventory_ignore_extensions`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `transfer_method`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `transport`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `gather_subset`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `module_set_locale`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `host_key_checking`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `stdout_callback`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `gathering`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `roles_path`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `ask_pass`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `executable`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `sudo_exe`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `control_path`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `retry_files_save_path`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `squash_actions`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `become_method`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `remote_tmp`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `control_path_dir`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `ssh_args`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `module_compression`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `local_tmp`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `module_lang`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `inventory`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `hash_behaviour`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `library`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `private_key_file`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `callback_whitelist`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `become_user`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `inventory_enabled`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `fact_caching`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `scp_if_ssh`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `undef`.
+
+#### `display_skipped_hosts`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `retry_files_enabled`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `command_warnings`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `bin_ansible_callbacks`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `become`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `allow_world_readable_tmpfiles`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `system_warnings`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `display_args_to_stdout`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `pipelining`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `sftp_batch_mode`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `allow_unsafe_lookups`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `accelerate_multi_key`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `no_target_syslog`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `merge_multiple_cli_flags`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `become_ask_pass`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `pty`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `always`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `record_host_keys`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `show_custom_stats`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `any_errors_fatal`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `host_key_auto_add`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `libvirt_lxc_noseclabel`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `look_for_keys`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `task_includes_static`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `handler_includes_static`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `private_role_vars`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `error_on_missing_handler`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `error_on_undefined_vars`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `no_log`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `restrict_facts_namespace`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `deprecation_warnings`
+
+Optional.
+
+Data type: Boolean.
+
+Description: 
+
+Default value: `undef`.
+
+#### `network_group_modules`
+
+Optional.
+
+Data type: Tuple.
+
+Description: 
+
+Default value: `undef`.
+
+#### `accelerate_connect_timeout`
+
+Optional.
+
+Data type: Float.
+
+Description: 
+
+Default value: `undef`.
+
+#### `version`
+
+Data type: String.
+
+Description: 
+
+Default value: `latest`.
+
+#### `confdir`
+
+Data type: String.
+
+Description: 
+
+Default value: `/etc/ansible`.
+
+#### `package_name`
+
+Data type: String.
+
+Description: 
+
+Default value: `ansible`.
+
+#### `group`
+
+Optional.
+
+Data type: String.
+
+Description: 
+
+Default value: `root`.
+
+#### `user`
+
+Data type: String.
+
+Description: 
+
+Default value: `root`.
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc. If there
-are Known Issues, you might want to include them under their own heading here.
+This module has been tested on [Centos 7.3, Ubuntu 16.04 and Debian 9].
 
-## Development
+### Contributors
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You can also add any additional sections you feel
-are necessary or important to include here. Please use the `## ` header.
+Edgar Silva <edgarsilva948@gmail.com>
+Vincius Xavier <viniciusxavierbove@gmail.com>

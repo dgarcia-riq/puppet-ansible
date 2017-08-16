@@ -76,8 +76,8 @@ class {'ansible':
 
 ### Private classes
 
-* ntp::install: Handles the packages.
-* ntp::config: Handles the configuration file.
+* ansible::install: Handles the packages.
+* ansible::config: Handles the configuration file.
 
 ## Parameters
 

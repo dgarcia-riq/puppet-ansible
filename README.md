@@ -1305,8 +1305,8 @@ This module has been tested on [Centos 7.3, Ubuntu 16.04 and Debian 9].
 
 ## Contributors
 
-* Edgar Silva <edgarsilva948@gmail.com>
-* Vincius Xavier <viniciusxavierbove@gmail.com>
+* Edgar Silva - <edgarsilva948@gmail.com>
+* Vincius Xavier - <viniciusxavierbove@gmail.com>
 
 ## Copyright
 * Otherskins, Inc.

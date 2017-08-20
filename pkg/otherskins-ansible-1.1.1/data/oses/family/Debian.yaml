@@ -1,0 +1,17 @@
+---
+ansible::packages:
+  - 'python'
+  - 'python3.5'
+  - 'python-pip'
+  - 'ieee-data'
+  - 'libyaml-0-2'
+  - 'python-httplib2'
+  - 'python-jinja2'
+  - 'python-kerberos'
+  - 'python-markupsafe'
+  - 'python-netaddr'
+  - 'python-paramiko'
+  - 'python-selinux'
+  - 'python-xmltodict'
+  - 'python-yaml'
+...

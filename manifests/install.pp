@@ -1,6 +1,6 @@
 ## Class to install core packages and ansible
 class ansible::install {
-  
+
     package { $ansible::packages:
       ensure => $ansible::version,
     }

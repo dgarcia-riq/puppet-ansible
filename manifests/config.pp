@@ -9,10 +9,10 @@ class ansible::config {
   }
 
   file { "${ansible::confdir}/ansible.cfg":
-    ensure => 'file',    
-    mode   => '0644',
-    owner  => $ansible::user,
-    group  => $ansible::group,
+    ensure  => 'file',
+    mode    => '0644',
+    owner   => $ansible::user,
+    group   => $ansible::group,
     content => epp('ansible/ansible.cfg.epp'),
   }
 

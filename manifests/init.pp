@@ -139,7 +139,7 @@
 #  class { 'ansible':
 #    roles_path       => /srv/roles,
 #    timeout          => 30,
-#    logs_path        => /var/log/ansible.log,
+#    log_path        => /var/log/ansible.log,
 #    private_key_file => /etc/keys, 
 #  }
 #

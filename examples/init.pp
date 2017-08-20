@@ -10,3 +10,10 @@
 # https://docs.puppet.com/guides/tests_smoke.html
 #
 include ::ansible
+
+ansible::hosts { 'databases':
+  entrys  => [
+    '172.16.0.30', 
+    '172.16.0.40',
+    ]
+}

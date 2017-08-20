@@ -1,5 +1,4 @@
-![Build Status](https://travis-ci.org/otherskins/puppet-ansible.svg?branch=master)
-![License](https://img.shields.io/badge/license-Apache%202-blue.svg) 
+[![Build Status](https://travis-ci.org/otherskins/puppet-ansible.svg?branch=master)](https://travis-ci.org/otherskins/puppet-ansible)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg)
 
 # Puppet module: Ansible
 

@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/otherskins/puppet-ansible.svg?branch=master)](https://travis-ci.org/otherskins/puppet-ansible)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg)
+[![Build Status](https://travis-ci.org/otherskins/puppet-ansible.svg?branch=master)](https://travis-ci.org/otherskins/puppet-ansible)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg) ![Version](https://img.shields.io/puppetforge/v/otherskins/ansible.svg) ![Downloads](https://img.shields.io/puppetforge/dt/otherskins/ansible.svg)
+
 
 # Puppet module: Ansible
 
@@ -59,7 +60,7 @@ ansible::hosts { 'databases':
 class { 'ansible':
   roles_path       => /srv/roles,
   timeout          => 30,
-  log_path        => /var/log/ansible.log,
+  log_path         => /var/log/ansible.log,
   private_key_file => /etc/keys, 
 }
 ```

@@ -1,12 +1,14 @@
+[![Build Status](https://travis-ci.org/otherskins/puppet-ansible.svg?branch=master)](https://travis-ci.org/otherskins/puppet-ansible)  ![License]
+
 # Puppet module: Ansible
 
 ### Table of Contents
 
-1. [Module Description - What the module does and why it is useful](#module-description)
-1. [Setup - The basics of getting started with ansible](#setup)
-1. [Usage - Configuration options and additional functionality](#usage)
-1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-1. [Limitations - OS compatibility, etc.](#limitations)
+1. [Module Description](#module-description)
+1. [Setup](#setup)
+1. [Usage](#usage)
+1. [Reference](#reference)
+1. [Limitations](#limitations)
 
 
 # Module description
@@ -57,7 +59,7 @@ ansible::hosts { 'databases':
 class { 'ansible':
   roles_path       => /srv/roles,
   timeout          => 30,
-  logs_path        => /var/log/ansible.log,
+  log_path        => /var/log/ansible.log,
   private_key_file => /etc/keys, 
 }
 ```

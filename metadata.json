@@ -1,6 +1,6 @@
 {
   "name": "otherskins-ansible",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "otherskins",
   "summary": "This module install and configure Ansible.",
   "license": "Apache-2.0",

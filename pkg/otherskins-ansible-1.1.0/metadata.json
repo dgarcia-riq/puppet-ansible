@@ -1,0 +1,57 @@
+{
+  "name": "otherskins-ansible",
+  "version": "1.1.0",
+  "author": "otherskins",
+  "summary": "This module install and configure Ansible.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/otherskins/puppet-ansible.git",
+  "project_page": "https://github.com/otherskins/puppet-ansible",
+  "issues_url": "https://github.com/otherskins/puppet-ansible/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-concat",
+      "version_requirement": ">= 4.0.1"
+    }
+  ],
+  "data_provider": null,
+  "tags": [
+    "ansible",
+    "puppet",
+    "ansible Inventory",
+    "ansible.cfg",
+    "puppet-agent",
+    "hiera 5"
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">=4.5.0 < 6.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "9"
+      ]
+    }
+  ]
+}

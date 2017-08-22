@@ -1,7 +1,9 @@
 ## Class to install core packages and ansible
 class ansible::install {
 
-    package { $ansible::packages:
+  $packages = lookup('ansible::packages')
+
+    package { $packages:
       ensure => $ansible::version,
     }
 

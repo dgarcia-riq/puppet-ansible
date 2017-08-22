@@ -3,3 +3,4 @@ spec/fixtures
 bin
 .rspec
 Gemfile.lock
+pkg

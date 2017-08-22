@@ -16,23 +16,22 @@
    ],
      "operatingsystem_support": [
        {
-       "operatingsystem":"RedHat",
-       "operatingsystemrelease":[ "7" ]
+         "operatingsystem":"RedHat",
+         "operatingsystemrelease":[ "7" ]
        },
        {
-       "operatingsystem":"CentOS",
-       "operatingsystemrelease":[ "7" ]
+         "operatingsystem":"CentOS",
+         "operatingsystemrelease":[ "7" ]
        },
        {
-       "operatingsystem": "Ubuntu",
-       "operatingsystemrelease": [ "16.04" ]
+         "operatingsystem": "Ubuntu",
+         "operatingsystemrelease": [ "16.04" ]
        },
        {
-       "operatingsystem": "Debian",
-       "operatingsystemrelease": [ "9" ]
+         "operatingsystem": "Debian",
+         "operatingsystemrelease": [ "9" ]
        }
       ],
-
   "dependencies": [
     {
       "name": "puppetlabs-concat",
@@ -40,4 +39,3 @@
     }
   ]
 }
-

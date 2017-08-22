@@ -1,18 +1,18 @@
 #  Class: ansible
 #  ===========================
-# 
+#
 #  This module install and configure Ansible.
-# 
+#
 #  Parameters
 #  -----------
-#  @param [Integer] gather_timeout - Some hardware related facts are collected with a maximum timeout of 10 seconds. This option lets you increase or decrease that timeout to something more suitable for the environment. 
+#  @param [Integer] gather_timeout - Some hardware related facts are collected with a maximum timeout of 10 seconds. This option lets you increase or decrease that timeout to something more suitable for the environment.
 #  @param [Integer] accelerate_timeout - This setting controls the timeout for receiving data from a client. If no data is received during this time, the socket connection will be closed. A keepalive packet is sent back to the controller every 15 seconds, so this timeout should not be set lower than 15 (by default, the timeout is 30 seconds)
 #  @param [Integer] accelerate_port - This is the port to use for accelerated mode.
 #  @param [Integer] command_timeout - The command timeout value defines the amount of time to wait for a command or RPC call before timing out. The value for the command timeout must be less than the value of the persistent connection idle timeout (connect_timeout).
 #  @param [Integer] connect_retry_timeout - Configures the persistent connection retry timeout. This value configures the retry timeout that ansible-connection will wait to connect to the local domain socket. This value must be larger than the ssh timeout (timeout) and less than persistent connection idle timeout (connect_timeout). The default value is 15 seconds.
 #  @param [Integer] connect_timeout - Configures the persistent connection timeout value in seconds.  This value is how long the persistent connection will remain idle before it is destroyed. If the connection doesn't receive a request before the timeout value expires, the connection is shutdown. The default value is 30 seconds.
 #  @param [Integer] context - Set how many context lines to show in diff
-#  @param [Integer] forks - This is the default number of parallel processes to spawn when communicating with remote hosts. Since Ansible 1.3, the fork number is automatically limited to the number of possible hosts at runtime, so this is really a limit of how much network and CPU load you think you can handle. Many users may set this to 50, some set it to 500 or more. If you have a large number of hosts, higher values will make actions across all of those hosts complete faster. 
+#  @param [Integer] forks - This is the default number of parallel processes to spawn when communicating with remote hosts. Since Ansible 1.3, the fork number is automatically limited to the number of possible hosts at runtime, so this is really a limit of how much network and CPU load you think you can handle. Many users may set this to 50, some set it to 500 or more. If you have a large number of hosts, higher values will make actions across all of those hosts complete faster.
 #  @param [Integer] poll_interval - For asynchronous tasks in Ansible (covered in Asynchronous Actions and Polling), this is how often to check back on the status of those tasks when an explicit poll interval is not supplied. The default is a reasonably moderate 15 seconds which is a tradeoff between checking in frequently and providing a quick turnaround when something may have completed.
 #  @param [Integer] remote_port - This sets the default SSH port on all of your systems, for systems that didn’t specify an alternative value in inventory. The default is the standard 22.
 #  @param [Integer] timeout - This is the default SSH timeout to use on connection attempts.
@@ -122,45 +122,45 @@
 #  @param [Boolean] private_role_vars - By default, variables from roles will be visible in the global variable scope. To prevent this, the following option can be enabled, and only tasks and handlers within the role will see the variables there
 #  @param [Boolean] error_on_missing_handler - Controls if a missing handler for a notification event is an error or a warning.
 #  @param [Boolean] error_on_undefined_vars - By default (as of 1.3), Ansible will raise errors when attempting to dereference Jinja2 variables that are not set in templates or action lines. Uncomment this line to revert the behavior to pre-1.3.
-#  @param [Boolean] no_log - Prevents logging of task data, off by default. 
+#  @param [Boolean] no_log - Prevents logging of task data, off by default.
 #  @param [Boolean] restrict_facts_namespace - This keeps facts from polluting the main namespace as variables. Setting to True keeps them under the ansible_facts namespace, the default is False.
 #  @param [Boolean] deprecation_warnings - Ansible may display deprecation warnings for language features that should no longer be used and will be removed in future versions.To disable these warnings, set the following value to False.
 #  @param [Boolean] network_group_modules - This family of modules use an alternative execution path optimized for network appliances only update this setting if you know how this works, otherwise it can break module execution.
 #  @param [Float] accelerate_connect_timeout - This setting controls the timeout for the socket connect call, and should be kept relatively low. The connection to the accelerate_port will be attempted 3 times before Ansible will fall back to ssh or paramiko (depending on your default connection setting) to try and start the accelerate daemon remotely. The default setting is 1.0 seconds.
-#  
+#
 #  Variables
 #  ----------
-# 
-# 
+#
+#  $packages - This variable contain packages dependecies to ansible module.
+#
 #  Examples
 #  --------
-# 
 #
 #  class { 'ansible':
 #    roles_path       => /srv/roles,
 #    timeout          => 30,
-#    log_path        => /var/log/ansible.log,
-#    private_key_file => /etc/keys, 
+#    log_path         => /var/log/ansible.log,
+#    private_key_file => /etc/keys,
 #  }
 #
 #  ansible::hosts { 'databases':
 #    entrys  => [
-#      '172.16.0.30', 
+#      '172.16.0.30',
 #      '172.16.0.40',
 #    ]
 #  }
 #
 #  Authors
 #  -------
-# 
+#
 #  [Edgar Silva] <edgarsilva948@gmail.com>
 #  [Vincius Xavier] <viniciusxavierbove@gmail.com>
-# 
+#
 #  Copyright
 #  ---------
-# 
+#
 #  Copyright 2017 - Otherskins, Inc.
-# 
+#
 class ansible (
 Optional[Integer] $gather_timeout,
 Optional[Integer] $accelerate_timeout,
@@ -282,7 +282,6 @@ Optional[Float] $accelerate_connect_timeout,
 String $version,
 String $confdir,
 String $provider,
-Optional[Array] $packages,
 String $package_name,
 String $user,
 String $group,

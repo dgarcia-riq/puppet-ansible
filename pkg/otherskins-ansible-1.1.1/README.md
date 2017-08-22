@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/otherskins/puppet-ansible.svg?branch=master)](https://travis-ci.org/otherskins/puppet-ansible)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg)
+[![Build Status](https://travis-ci.org/otherskins/puppet-ansible.svg?branch=master)](https://travis-ci.org/otherskins/puppet-ansible)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg) ![Version](https://img.shields.io/puppetforge/v/otherskins/ansible.svg) ![Downloads](https://img.shields.io/puppetforge/dt/otherskins/ansible.svg)
+
 
 # Puppet module: Ansible
 
@@ -19,12 +20,12 @@ The ansible module installs and configures the Ansible across a range of operati
 
 ## Beginning with ansible
 
-`include '::ansible'` is enough to get you up and running. To pass in parameters specifying hosts entries use:
+`include ::ansible` is enough to get you up and running. To pass in parameters specifying hosts entries use:
 
 ```puppet
   ansible::hosts { 'webservers':
     entrys  => [
-      '172.16.0.10', 
+      '172.16.0.10',
       '172.16.0.20',
     ]
   }
@@ -37,19 +38,19 @@ To control all the parameters of the configuration file use the main `::ansible`
 ### Install ansible
 
 ```puppet
-include '::ansible'
+include ::ansible
 ```
 
 ### Install and specifying hosts
 
 ```puppet
-include '::ansible'
+include ::ansible
 
 ansible::hosts { 'databases':
   entrys  => [
-    '172.16.0.30', 
+    '172.16.0.30',
     '172.16.0.40',
-    ]
+  ]
 }
 ```
 
@@ -57,11 +58,21 @@ ansible::hosts { 'databases':
 
 ```puppet
 class { 'ansible':
-  roles_path       => /srv/roles,
+  roles_path       => '/srv/roles',
   timeout          => 30,
-  log_path        => /var/log/ansible.log,
-  private_key_file => /etc/keys, 
+  log_path         => '/var/log/ansible.log',
+  private_key_file => '/etc/keys',
 }
+```
+
+### Using hiera keys
+This module don't use params class. Values of parameters can be used with Hiera v5:
+
+```puppet
+ansible::roles_path: '/srv/roles'
+ansible::timeout: 30
+ansible::log_path: '/var/log/ansible.log'
+ansible::private_key_file: '/etc/keys'
 ```
 
 # Reference
@@ -165,7 +176,7 @@ Optional.
 
 Data type: Integer.
 
-Description: This is the default number of parallel processes to spawn when communicating with remote hosts. Since Ansible 1.3, the fork number is automatically limited to the number of possible hosts at runtime, so this is really a limit of how much network and CPU load you think you can handle. Many users may set this to 50, some set it to 500 or more. If you have a large number of hosts, higher values will make actions across all of those hosts complete faster. 
+Description: This is the default number of parallel processes to spawn when communicating with remote hosts. Since Ansible 1.3, the fork number is automatically limited to the number of possible hosts at runtime, so this is really a limit of how much network and CPU load you think you can handle. Many users may set this to 50, some set it to 500 or more. If you have a large number of hosts, higher values will make actions across all of those hosts complete faster.
 
 Default value: `undef`.
 
@@ -1215,7 +1226,7 @@ Optional.
 
 Data type: Boolean.
 
-Description: Prevents logging of task data, off by default. 
+Description: Prevents logging of task data, off by default.
 
 Default value: `undef`.
 

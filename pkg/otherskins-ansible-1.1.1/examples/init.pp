@@ -9,11 +9,16 @@
 # Learn more about module testing here:
 # https://docs.puppet.com/guides/tests_smoke.html
 #
-include ::ansible
+class { 'ansible':
+  roles_path       => '/srv/roles',
+  timeout          => 30,
+  log_path         => '/var/log/ansible.log',
+  private_key_file => '/etc/keys',
+}
 
 ansible::hosts { 'databases':
   entrys  => [
     '172.16.0.30',
     '172.16.0.40',
-    ]
+  ]
 }

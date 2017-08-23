@@ -33,4 +33,5 @@ class ansible::install {
   -> package { $ansible::package_name:
     ensure => $ansible::version,
   }
+
 }

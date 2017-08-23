@@ -5,8 +5,11 @@
 #
 #  Parameters
 #  -----------
-#  @param [Integer] gather_timeout - Some hardware related facts are collected with a maximum timeout of 10 seconds. This option lets you increase or decrease that timeout to something more suitable for the environment.
-#  @param [Integer] accelerate_timeout - This setting controls the timeout for receiving data from a client. If no data is received during this time, the socket connection will be closed. A keepalive packet is sent back to the controller every 15 seconds, so this timeout should not be set lower than 15 (by default, the timeout is 30 seconds)
+#  @param [Integer] gather_timeout - Some hardware related facts are collected with a maximum timeout of 10 seconds. This option lets you 
+#    increase or decrease that timeout to something more suitable for the environment.
+#  @param [Integer] accelerate_timeout - This setting controls the timeout for receiving data from a client. If no data is received during 
+#    this time, the socket connection will be closed. A keepalive packet is sent back to the controller every 15 seconds, so this timeout 
+#    should not be set lower than 15 (by default, the timeout is 30 seconds)
 #  @param [Integer] accelerate_port - This is the port to use for accelerated mode.
 #  @param [Integer] command_timeout - The command timeout value defines the amount of time to wait for a command or RPC call before timing out. The value for the command timeout must be less than the value of the persistent connection idle timeout (connect_timeout).
 #  @param [Integer] connect_retry_timeout - Configures the persistent connection retry timeout. This value configures the retry timeout that ansible-connection will wait to connect to the local domain socket. This value must be larger than the ssh timeout (timeout) and less than persistent connection idle timeout (connect_timeout). The default value is 15 seconds.
@@ -287,8 +290,8 @@ String $user,
 String $group,
 ) {
 
-include ::ansible::install
-include ::ansible::config
+contain ::ansible::install
+contain ::ansible::config
 
 Class['ansible::install']
 -> Class['ansible::config']

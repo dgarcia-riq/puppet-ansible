@@ -68,7 +68,7 @@ class { 'ansible':
 ### Using hiera keys
 This module don't use params class. Values of parameters can be used with Hiera v5:
 
-```puppet
+```yaml
 ansible::roles_path: '/srv/roles'
 ansible::timeout: 30
 ansible::log_path: '/var/log/ansible.log'

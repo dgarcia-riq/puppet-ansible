@@ -1314,7 +1314,14 @@ Default value: `root`.
 
 ## Limitations
 
-This module has been tested on [Centos 7.3, Ubuntu 16.04 and Debian 9].
+This module has been tested on:
+  * Centos 6
+  * Centos 7
+  * Ubuntu 16.04
+  * Ubuntu 14.04 
+  * Debian 8
+  * Debian 9
+  * Fedora 26
 
 ## Contributors
 

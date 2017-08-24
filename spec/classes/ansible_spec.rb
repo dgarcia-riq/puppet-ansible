@@ -1,7 +1,5 @@
 require 'spec_helper'
-
-describe 'ansible' do
-
+describe 'ansible', :type => :class do
   context 'with defaults for all parameters' do
     let (:facts) do {
       :kernel => 'Linux',

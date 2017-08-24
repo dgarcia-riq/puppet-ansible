@@ -12,7 +12,6 @@ describe 'ansible' do
     end
   end
 
-  it { is_expected.to compile.with_all_deps }
   it { is_expected.to contain_class('ansible')}
   it { is_expected.to contain_class('ansible::install').that_comes_before('Class[ansible::config]') }
   it { is_expected.to contain_class('ansible::config') }

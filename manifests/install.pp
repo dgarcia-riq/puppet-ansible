@@ -7,6 +7,9 @@ class ansible::install {
       ensure => latest,
     }
 
+    Package['epel-release']
+    -> Package[$ansible::package_name]
+
   }
 
   elsif $facts['operatingsystem'] =~ /^(Debian|Ubuntu)$/ {
@@ -29,9 +32,12 @@ class ansible::install {
       include  => { 'deb' => true },
       notify   => Exec['apt_update']
     }
+
+    Apt::Source['ansible_repo'] 
+    -> Package[$ansible::package_name]
   }
 
-  -> package { $ansible::package_name:
+  package { $ansible::package_name:
     ensure => $ansible::version,
   }
 

@@ -1,14 +1,15 @@
 ## Class to install core packages and ansible
 class ansible::install {
 
-  if $facts['os']['name'] =~ /^(RedHat|CentOS)$/ {
+  if $facts['operatingsystem'] =~ /^(RedHat|CentOS)$/ {
 
     package { 'epel-release':
       ensure => latest,
     }
+
   }
 
-  elsif $facts['os']['name'] =~ /^(Debian|Ubuntu)$/ {
+  elsif $facts['operatingsystem'] =~ /^(Debian|Ubuntu)$/ {
 
     include ::apt
 

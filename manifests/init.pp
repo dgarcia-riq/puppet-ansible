@@ -288,6 +288,7 @@ String $provider,
 String $package_name,
 String $user,
 String $group,
+String $ensure,
 ) {
 
 contain ::ansible::install

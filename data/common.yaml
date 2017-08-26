@@ -122,4 +122,5 @@ ansible::package_name: 'ansible'
 ansible::provider: 'pip'
 ansible::user: 'root'
 ansible::group: 'root'
+ansible::ensure: 'present'
 ...

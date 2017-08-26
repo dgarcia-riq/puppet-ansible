@@ -5,7 +5,7 @@ class ansible::config {
     owner  => $ansible::user,
     group  => $ansible::group,
   }
-  
+
   file { $ansible::confdir:
     ensure => 'directory',
     mode   => '0755',

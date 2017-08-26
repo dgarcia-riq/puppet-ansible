@@ -50,10 +50,8 @@
 #connection attempts.
 #  @param [Integer] max_diff_size - This controls the cutoff point (in bytes) 
 #on --diff for files set to 0 for unlimited (RAM may suffer!).
-#  @param [Integer] nocows - Por padrão, Ansible irá aproveitar o Cowsay se 
-#instalado para criar /usr/bin/ansible-playbook é mais excitante. Por quê? 
-#Acreditamos que o gerenciamento de sistemas deve ser uma experiência feliz. Se 
-#você não gosta das vacas, pode desativá-las definindo 'nocows' para 1.
+#  @param [Integer] nocows - By default, Ansible will take advantage of Cowsay #if installed to create / usr / bin / ansible-playbook is more exciting. #Because? We believe that systems management should be a happy experience. If
+# You do not like cows, you can turn them off by setting 'nocows' to 1.
 #  @param [Integer] nocolor - By default ansible will try to colorize output to 
 #give a better indication of failure and status information. If you dislike 
 #this behavior you can turn it off by setting nocolor to 1.

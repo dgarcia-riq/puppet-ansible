@@ -1,0 +1,12 @@
+HOSTS:
+  centos7.3:
+    roles:
+      - agent
+      - default
+    platform: el-7-x86_64
+    box: viniciusxavierbove/centos7.3
+    hypervisor: vagrant
+    vagrant_memsize: 2600
+
+CONFIG:
+  type: aio

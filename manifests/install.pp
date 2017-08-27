@@ -3,7 +3,7 @@ class ansible::install {
 
   case $facts['operatingsystem'] {
 
-    'RedHat', 'CentOS', 'Scientific', 'OracleLinux': {
+    'RedHat', 'CentOS', 'OracleLinux', 'Fedora': {
 
       contain ansible::repo::yum
 
@@ -21,6 +21,8 @@ class ansible::install {
         -> Class['ansible::repo::apt']
           -> Package[$ansible::package_name]
     }
+
+    default: { fail('Your operating system is not supported.') }
   }
 
   $ensure = $ansible::ensure ? {

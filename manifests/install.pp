@@ -1,4 +1,6 @@
-## Class to install core packages and ansible
+# @api private 
+# This class handles ansible packages. Avoid modifying private classes.
+
 class ansible::install {
 
   case $facts['operatingsystem'] {
@@ -23,6 +25,7 @@ class ansible::install {
     }
 
     default: { fail('Your operating system is not supported.') }
+
   }
 
   $ensure = $ansible::ensure ? {

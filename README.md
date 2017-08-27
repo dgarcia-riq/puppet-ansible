@@ -5,28 +5,51 @@
 
 ### Table of Contents
 
-1. [Module Description](#module-description)
-1. [Setup](#setup)
-1. [Usage](#usage)
-1. [Reference](#reference)
-1. [Limitations](#limitations)
+1. [Description](#module-description)
+2. [Setup - The basics of getting started with ansible](#setup)
+    * [What ansible affects](#what-ansible-affects)
+    * [Setup requirements](#setup-requirements)
+    * [Beginning with ansible](#beginning-with-ansible)
+3. [Usage - Configuration options and additional functionality](#usage)
+4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+5. [Limitations - OS compatibility, etc.](#limitations)
 
-
-# Module description
+## Description
 
 The ansible module installs and configures the Ansible across a range of operating systems and distributions.
 
-# Setup
+## Setup
 
-## Beginning with ansible
+### What ansible affects
+This module affects the ansible package across multiple distributions, manages all the parameters of the ansible.cfg configuration file, adds and removes entries in the /etc/ansible/hosts inventory file.
 
-`include ::ansible` is enough to get you up and running. To pass in parameters specifying hosts entries use:
+### Setup requirements
+* Puppet >= 4.10
+* Facter >= 2.0
+* [Stdlib Module](https://github.com/puppetlabs/puppetlabs-stdlib)
+* [Concat Module](https://github.com/puppetlabs/puppetlabs-concat)
+* [Apt Module](https://github.com/puppetlabs/puppetlabs-apt)
+
+### Beginning with ansible
+
+`include ::ansible` is enough to get you up and running with default parameters.
+You can pass the parameters to ansible's configuration, like this:
+
+```puppet
+class { 'ansible':
+  roles_path       => '/srv/roles',
+  timeout          => 30,
+  log_path         => '/var/log/ansible.log',
+  private_key_file => '/etc/keys',
+}
+```
+
+Do you want to manage the hosts file? Use the type defined `ansible::hosts` for creating entries.
 
 ```puppet
   ansible::hosts { 'webservers':
     entrys  => [
       '172.16.0.10',
-      '172.16.0.20',
     ]
   }
 ```
@@ -35,7 +58,7 @@ The ansible module installs and configures the Ansible across a range of operati
 
 To control all the parameters of the configuration file use the main `::ansible` class. See the common usages below for examples.
 
-### Install ansible
+### Install ansible with default parameters
 
 ```puppet
 include ::ansible
@@ -48,13 +71,26 @@ include ::ansible
 
 ansible::hosts { 'databases':
   entrys  => [
-    '172.16.0.30',
-    '172.16.0.40',
+    'dbmaster.com',
+    'database.com',
+  ]
+}
+
+ansible::hosts { 'webservers':
+  entrys  => [
+    '10.0.0.20',
+    'web1.com',
+  ]
+}
+
+ansible::hosts { 'loadbalancers':
+  entrys  => [
+    '192.168.200.0/24',
   ]
 }
 ```
 
-### Change parameter in ansible.cfg
+### Specific parameters to manage configuration file ansible.cfg
 
 ```puppet
 class { 'ansible':
@@ -79,7 +115,7 @@ ansible::private_key_file: '/etc/keys'
 
 ## Defined Types
 
-* `hosts` - Set hosts entries
+* `ansible::hosts` - Set hosts entries
 
 ## Classes
 
@@ -91,6 +127,8 @@ ansible::private_key_file: '/etc/keys'
 
 * ansible::install: Handles the packages.
 * ansible::config: Handles the configuration file.
+* ansible::repo::apt: Handles the repository in the Debian based specific distributions.
+* ansible::repo::yum: Handles the repository in the RedHat based specific distributions.
 
 ## Parameters
 
@@ -1312,6 +1350,14 @@ Description: Default user to ansible.
 
 Default value: `root`.
 
+#### `ensure`
+
+Data type: String.
+
+Description: Manage or unmanage Ansible.
+
+Default value: `present`.
+
 ## Limitations
 
 This module has been tested on:
@@ -1322,9 +1368,15 @@ This module has been tested on:
   * Debian 8
   * Debian 9
   * Fedora 26
+  * Oracle Linux
+  * RedHat
+
+## Development
+Puppet modules on the Puppet Forge are open projects, and community contributions are essential for keeping them great. Please follow our guidelines when contributing changes.
+
+For more information, see our [module contribution guide.](https://github.com/otherskins/puppet-ansible/blob/master/CONTRIBUTING.md)
 
 ## Contributors
-
 * Edgar Silva - <edgarsilva948@gmail.com>
 * Vincius Xavier - <viniciusxavierbove@gmail.com>
 

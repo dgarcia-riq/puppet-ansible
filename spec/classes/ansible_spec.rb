@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe 'ansible' do
+  let(:facts) do
+    {
+      'operatingsystem' => 'CentOS',
+    }
+  end
   it { is_expected.to compile.with_all_deps }
 
   it { should contain_class('ansible') }

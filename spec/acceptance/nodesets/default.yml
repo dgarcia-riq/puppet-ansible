@@ -1,5 +1,5 @@
 HOSTS:
-  centos7.3:
+  centos-7:
     roles:
       - agent
       - default

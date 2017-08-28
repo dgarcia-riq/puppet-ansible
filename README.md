@@ -125,10 +125,10 @@ ansible::private_key_file: '/etc/keys'
 
 ### Private classes
 
-* ansible::install: Handles the packages.
-* ansible::config: Handles the configuration file.
-* ansible::repo::apt: Handles the repository in the Debian based specific distributions.
-* ansible::repo::yum: Handles the repository in the RedHat based specific distributions.
+* ansible::install Handles the packages.
+* ansible::config Handles the configuration file.
+* ansible::repo::apt Handles the repository in the Debian based specific distributions.
+* ansible::repo::yum Handles the repository in the RedHat based specific distributions.
 
 ## Parameters
 

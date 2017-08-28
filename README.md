@@ -35,7 +35,7 @@ This module affects the ansible package across multiple distributions, manages a
 `include ::ansible` is enough to get you up and running with default parameters.
 You can pass the parameters to ansible's configuration, like this:
 
-```puppet
+```yaml
 class { 'ansible':
   roles_path       => '/srv/roles',
   timeout          => 30,

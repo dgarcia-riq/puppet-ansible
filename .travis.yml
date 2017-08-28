@@ -1,7 +1,6 @@
 ---
 sudo: false
 language: ruby
-dist: trusty
 cache: bundler
 before_install:
   - bundle -v
@@ -37,5 +36,3 @@ branches:
   only:
     - master
     - /^v\d/
-#notifications:
-#  email: othersskins@gmail.com

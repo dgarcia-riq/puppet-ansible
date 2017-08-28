@@ -1,6 +1,9 @@
 spec/fixtures
+spec/hosts
+spec/functions
 .bundle
 bin
 .rspec
 Gemfile.lock
 pkg
+report.txt

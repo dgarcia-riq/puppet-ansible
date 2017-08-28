@@ -13,6 +13,7 @@ before_install:
 script:
   - bundle exec rake $CHECK
   - bundle exec rake metadata_lint
+  - bundle exec rake syntax
   - bundle exec rake spec
 matrix:
   fast_finish: true

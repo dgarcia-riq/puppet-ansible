@@ -11,7 +11,6 @@ before_install:
   - gem --version
   - bundle -v
 script:
-  - bundle exec rake release_checks
   - bundle exec rake $CHECK
   - bundle exec rake metadata_lint
   - bundle exec rake spec

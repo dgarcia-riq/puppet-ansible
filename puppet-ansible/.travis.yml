@@ -37,5 +37,5 @@ branches:
   only:
     - master
     - /^v\d/
-#notifications:
-#  email: othersskins@gmail.com
+notifications:
+  email: othersskins@gmail.com

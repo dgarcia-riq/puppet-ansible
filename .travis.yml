@@ -13,7 +13,6 @@ before_install:
 script:
   - bundle exec rake release_checks
   - bundle exec rake $CHECK
-  - bundle exec rake syntax
   - bundle exec rake metadata_lint
   - bundle exec rake spec
 matrix:

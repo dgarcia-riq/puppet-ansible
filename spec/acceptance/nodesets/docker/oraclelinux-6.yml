@@ -1,0 +1,9 @@
+HOSTS:
+  oraclelinux-6-x64:
+    platform: el-6-x86_64
+    hypervisor: docker
+    image: oraclelinux:6
+    docker_preserve_image: true
+    docker_cmd: '["/usr/sbin/init"]'
+CONFIG:
+  trace_limit: 200

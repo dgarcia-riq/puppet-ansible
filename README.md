@@ -37,6 +37,7 @@ You can pass the parameters to ansible's configuration, like this:
 
 ```yaml
 class { 'ansible':
+  ensure           => 'present',
   roles_path       => '/srv/roles',
   timeout          => 30,
   log_path         => '/var/log/ansible.log',
@@ -61,13 +62,13 @@ To control all the parameters of the configuration file use the main `::ansible`
 ### Install ansible with default parameters
 
 ```puppet
-include ::ansible
+include '::ansible'
 ```
 
 ### Install and specifying hosts
 
 ```puppet
-include ::ansible
+include '::ansible'
 
 ansible::hosts { 'databases':
   entrys  => [
@@ -94,6 +95,7 @@ ansible::hosts { 'loadbalancers':
 
 ```puppet
 class { 'ansible':
+  ensure           => 'present',
   roles_path       => '/srv/roles',
   timeout          => 30,
   log_path         => '/var/log/ansible.log',

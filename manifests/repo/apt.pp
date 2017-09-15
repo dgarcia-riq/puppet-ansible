@@ -17,5 +17,5 @@ class ansible::repo::apt {
   }
 
     Apt::Source['ansible_repo']
-      ~> Exec['apt_update']
+    ~> Exec['apt_update']
 }

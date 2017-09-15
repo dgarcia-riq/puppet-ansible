@@ -1,5 +1,5 @@
 # PRIVATE CLASS: do not use directly
-class ansible::repo::yum ( 
+class ansible::repo::yum (
   Integer $epel_version
 ) {
 

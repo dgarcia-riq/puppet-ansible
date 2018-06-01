@@ -15,13 +15,6 @@ class ansible::install {
 
       contain ansible::repo::apt
 
-      package { 'dirmngr':
-        ensure => $ansible::ensure,
-      }
-
-      Package['dirmngr']
-        -> Class['ansible::repo::apt']
-          -> Package[$ansible::package_name]
     }
 
     default: { fail('Your operating system is not supported.') }

@@ -8,9 +8,6 @@ interpreter_python = <%= $ansible::interpreter_python %>
 <%- if $ansible::inventory { -%>
 inventory = <%= $ansible::inventory %>
 <% } -%>
-<%- if $ansible::inventory { -%>
-inventory = <%= $ansible::inventory %>
-<% } -%>
 <%- if $ansible::library { -%>
 library = <%= $ansible::library %>
 <%- } -%>

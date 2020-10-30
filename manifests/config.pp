@@ -12,13 +12,6 @@ class ansible::config {
     ensure => 'directory',
     mode   => '0755',
   }
-  $ansible_dirs = [ '${ansible::confdir}/inventories', '${ansible::confdir}/roles', 
-  '${ansible::confdir}/playbooks', '${ansible::confdir}/cicd'
-  ]
-  file { $ansible_dirs:
-    ensure => 'directory',
-    mode   => '0755',
-  }
 
   file { "${ansible::confdir}/ansible.cfg":
     ensure  => 'file',
@@ -26,7 +19,7 @@ class ansible::config {
     content => epp('ansible/ansible.cfg.epp'),
   }
 
-  concat { "${ansible::confdir}/inventories/hosts":
+  concat { "${ansible::confdir}/hosts":
     ensure => present,
     mode   => '0644',
     owner  => $ansible::user,

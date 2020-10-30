@@ -13,8 +13,8 @@ class ansible::config {
     mode   => '0755',
   }
 
-  $ansible_dirs = [ '${ansible::confdir}/inventories', '${ansible::confdir}/roles', 
-  '${ansible::confdir}/playbooks', '${ansible::confdir}/cicd'
+  $ansible_dirs = [ "${ansible::confdir}/inventories", "${ansible::confdir}/roles", 
+  "${ansible::confdir}/playbooks", "${ansible::confdir}/cicd"
   ]
 
   file { $ansible_dirs:

@@ -24,7 +24,7 @@ define ansible::hosts (
 ) {
 
   concat::fragment { $title:
-    target  => "${ansible::confdir}/inventories/hosts",
+    target  => "${ansible::confdir}/hosts",
     content => epp('ansible/hosts.epp',
       {
         section => $title,

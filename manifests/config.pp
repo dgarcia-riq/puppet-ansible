@@ -28,7 +28,7 @@ class ansible::config {
     content => epp('ansible/ansible.cfg.epp'),
   }
 
-  concat { "${ansible::confdir}/inventories/hosts":
+  concat { "${ansible::confdir}/hosts":
     ensure => present,
     mode   => '0644',
     owner  => $ansible::user,
